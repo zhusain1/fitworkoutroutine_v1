@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/workoutapp/static/css/main.3a7332c5.chunk.css",
-    "main.js": "/workoutapp/static/js/main.b1f60d90.chunk.js",
-    "main.js.map": "/workoutapp/static/js/main.b1f60d90.chunk.js.map",
-    "runtime-main.js": "/workoutapp/static/js/runtime-main.922995d0.js",
-    "runtime-main.js.map": "/workoutapp/static/js/runtime-main.922995d0.js.map",
-    "static/css/2.64a99b10.chunk.css": "/workoutapp/static/css/2.64a99b10.chunk.css",
-    "static/js/2.99b8afd1.chunk.js": "/workoutapp/static/js/2.99b8afd1.chunk.js",
-    "static/js/2.99b8afd1.chunk.js.map": "/workoutapp/static/js/2.99b8afd1.chunk.js.map",
-    "index.html": "/workoutapp/index.html",
-    "precache-manifest.2b3b028cb61b0fc888086fa672d14342.js": "/workoutapp/precache-manifest.2b3b028cb61b0fc888086fa672d14342.js",
-    "service-worker.js": "/workoutapp/service-worker.js",
-    "static/css/2.64a99b10.chunk.css.map": "/workoutapp/static/css/2.64a99b10.chunk.css.map",
-    "static/css/main.3a7332c5.chunk.css.map": "/workoutapp/static/css/main.3a7332c5.chunk.css.map",
-    "static/js/2.99b8afd1.chunk.js.LICENSE": "/workoutapp/static/js/2.99b8afd1.chunk.js.LICENSE",
-    "static/media/logo.jpg": "/workoutapp/static/media/logo.9374f98a.jpg"
+    "main.css": "./static/css/main.3a7332c5.chunk.css",
+    "main.js": "./static/js/main.d844ae41.chunk.js",
+    "main.js.map": "./static/js/main.d844ae41.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.c333276d.js",
+    "runtime-main.js.map": "./static/js/runtime-main.c333276d.js.map",
+    "static/css/2.64a99b10.chunk.css": "./static/css/2.64a99b10.chunk.css",
+    "static/js/2.99b8afd1.chunk.js": "./static/js/2.99b8afd1.chunk.js",
+    "static/js/2.99b8afd1.chunk.js.map": "./static/js/2.99b8afd1.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.4be83e80fa7df8b662ebffb50db0ac4b.js": "./precache-manifest.4be83e80fa7df8b662ebffb50db0ac4b.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.64a99b10.chunk.css.map": "./static/css/2.64a99b10.chunk.css.map",
+    "static/css/main.3a7332c5.chunk.css.map": "./static/css/main.3a7332c5.chunk.css.map",
+    "static/js/2.99b8afd1.chunk.js.LICENSE": "./static/js/2.99b8afd1.chunk.js.LICENSE",
+    "static/media/logo.jpg": "./static/media/logo.9374f98a.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.922995d0.js",
+    "static/js/runtime-main.c333276d.js",
     "static/css/2.64a99b10.chunk.css",
     "static/js/2.99b8afd1.chunk.js",
     "static/css/main.3a7332c5.chunk.css",
-    "static/js/main.b1f60d90.chunk.js"
+    "static/js/main.d844ae41.chunk.js"
   ]
 }
