@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios, { post } from 'axios';
-import Navbar from './Navbar';
+import Navbar from './Navbar'
+import Sample from './Sample'
 
 class Create extends React.Component {
   constructor(props) {
@@ -93,6 +94,7 @@ class Create extends React.Component {
     return (
       <div className="Create">
         <Navbar />
+        <Sample />
         <div className="card w-75">
                 <h2> Create an exercise </h2>
                 <form onSubmit={this.handleSubmit}>
