@@ -27,7 +27,7 @@ class App extends Component {
     handleSubmit(event){
         event.preventDefault();
 
-        const url = 'http://localhost:8080/workouts/type/'  + this.state.bodyPart;
+        const url = 'https://workoutappapi.herokuapp.com/workouts/type/'  + this.state.bodyPart;
 
         axios.get(url)
         .then(res => {

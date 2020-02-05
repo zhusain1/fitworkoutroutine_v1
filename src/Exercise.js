@@ -22,7 +22,7 @@ class Exercise extends Component {
                             {this.props.text}
                             <br/>
                             <video width="350" controls>
-                                <source src={`http://localhost:8080/api/v1/workout-video/workoutVideo/download?workoutId=${this.props.id}`} type="video/mp4"/>
+                                <source src={`https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/download?workoutId=${this.props.id}`} type="video/mp4"/>
                                 Your browser does not support HTML5 video.
                             </video>
                         </Card.Body>

@@ -25,7 +25,7 @@ class Create extends React.Component {
     console.log("File submitted and data submitted");
 
     // Save to DB
-    var backend = 'http://localhost:8080/workout';
+    var backend = 'https://workoutappapi.herokuapp.com/workout';
 
     var workoutData =  {
       workoutName: this.state.title,
@@ -50,7 +50,7 @@ class Create extends React.Component {
 
       
     // Save to S3
-    var server = 'http://localhost:8080/api/v1/workout-video/workoutVideo/upload';
+    var server = 'https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/upload';
 
     var bodyFormData = new FormData();
     bodyFormData.append('file', this.state.files); 
