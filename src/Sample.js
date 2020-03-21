@@ -14,7 +14,8 @@ class Sample extends React.Component {
     this.state ={
       username:"",
       password:"",
-      show:true
+      show:true,
+      errors:false
     };
  
     this.handleSetShow = this.handleSetShow.bind(this);
@@ -49,11 +50,20 @@ class Sample extends React.Component {
       })
       .then((response) => {
           //handle success
-          this.setState({ show: false });
+          this.setState({ 
+            show: false ,
+            errors: false
+          });
+
       })
       .catch((response) => {
           //handle error
           console.log(response);
+          this.setState({ 
+            errors: true,
+            username: "",
+            password: ""
+          });
       });
   }
 
@@ -65,20 +75,27 @@ class Sample extends React.Component {
         <Modal show={this.state.show} animation={false
         }>
         <Modal.Header>
-          <Modal.Title>Administrator Login</Modal.Title>
+          <Modal.Title>
+            Administrator Login
+            {this.state.errors === true &&
+                <div className="alert alert-danger" role="alert">
+                Invalid username/password
+             </div>
+            }
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="col-5">
           Username: 
               <input type="text" className="form-control" placeholder="username" 
-              onChange={this.handleUsername}
+              onChange={this.handleUsername} value={this.state.username}
               />
           </div>
             <br/>
             <div className="col-5">
             Password:
               <input type="password" className="form-control" placeholder="password" 
-              onChange={this.handlePassword}
+              onChange={this.handlePassword} value={this.state.password}
               />
           </div>
         </Modal.Body>
