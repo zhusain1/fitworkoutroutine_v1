@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios, { post } from 'axios';
 import Navbar from './Navbar'
 import Sample from './Sample'
+import Notification from './Notification'
 
 class Create extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Create extends React.Component {
       title:'',
       type:'',
       description:'',
+      notification:false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeFile = this.handleChangeFile.bind(this);
@@ -61,13 +63,16 @@ class Create extends React.Component {
       data: bodyFormData,
       headers: {'Content-Type': 'application/x-www-form-urlencoded' }
       })
-      .then(function (response) {
+      .then(function (response){
           //handle success
           console.log(response);
       })
       .catch(function (response) {
           //handle error
           console.log(response);
+      });
+      this.setState({
+        notification: true
       });
   }
 
@@ -94,6 +99,9 @@ class Create extends React.Component {
     return (
       <div className="Create">
         <Navbar />
+        {this.state.notification === true &&
+          <Notification/>
+        }
         <Sample />
         <div className="card w-75">
                 <h2> Create an exercise </h2>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {Card, Accordion, Button } from 'react-bootstrap';
+import { Player } from 'video-react';
+import "../node_modules/video-react/dist/video-react.css"; // import css
 
 class Exercise extends Component {
     constructor(props) {
         super(props);
     }
-
-
     render() {
         return (
             <div>
@@ -21,10 +21,13 @@ class Exercise extends Component {
                         <Card.Body>
                             {this.props.text}
                             <br/>
-                            <video width="350" controls>
-                                <source src={`https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/download?workoutId=${this.props.id}`} type="video/mp4"/>
-                                Your browser does not support HTML5 video.
-                            </video>
+                            <Player
+                                playsInline
+                                src={`https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/download?workoutId=${this.props.id}`}
+                                fluid={true}
+                                width={350}
+                                height={350}
+                            />
                         </Card.Body>
                         </Accordion.Collapse>
                     </Card>
