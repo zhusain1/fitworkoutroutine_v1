@@ -7,16 +7,19 @@ import ErrorPage from './ErrorPage';
 import {
     BrowserRouter as Router,
     Route,
+    Switch,
 } from "react-router-dom";
 
 class Nav extends Component {
     render() {
         return (   
             <Router>
-                <Route exact path="/" component={App} /> 
-                <Route exact path="/Create" component={Create} />
-                <Route exact path="/Workoutplan" component={Workoutplan} />
-                <Route path="/error" component={ErrorPage} />
+                <Switch>
+                    <Route exact path="/" component={App} /> 
+                    <Route exact path="/Create" component={Create} />
+                    <Route exact path="/Workoutplan" component={Workoutplan} />
+                    <Route component={ErrorPage} />
+                </Switch>
             </Router>
         );
     }
