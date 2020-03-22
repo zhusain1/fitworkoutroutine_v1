@@ -3,6 +3,7 @@ import App from './App';
 import Workoutplan from './Workoutplan';
 import Navbar from './Navbar';
 import Create from './Create';
+import ErrorPage from './ErrorPage';
 import {
     BrowserRouter as Router,
     Route,
@@ -13,8 +14,9 @@ class Nav extends Component {
         return (   
             <Router>
                 <Route exact path="/" component={App} /> 
-                <Route path="/Create" component={Create} />
-                <Route path="/Workoutplan" component={Workoutplan} />
+                <Route exact path="/Create" component={Create} />
+                <Route exact path="/Workoutplan" component={Workoutplan} />
+                <Route path="/error" component={ErrorPage} />
             </Router>
         );
     }
