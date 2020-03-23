@@ -2,9 +2,22 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 import Exercise from './Exercise';
 class Workoutplan extends Component {
+    
     constructor(props){
         super(props);
-        let workouts = this.props.history.location.state.workout;
+        try{
+            var workouts = this.props.history.location.state.workout;        
+        }catch(error){
+            console.log("ERROR");
+            console.log(workouts);
+            var workouts = {}
+            this.props.history.push('/error');
+        }
+
+        if(workouts === undefined){
+            console.log("ERROR AGAIN")
+            this.props.history.push('/error');
+        }
         /*
         id: 1
         workoutName: "Dumbell Press"
@@ -12,11 +25,11 @@ class Workoutplan extends Component {
         workoutType: "Chest"
         workoutUrl: "workout.com"
         */
-       var eId = []
-       var eName = []
-       var eDescription = []
-       var eType = []
-       var eUrl = []
+        var eId = []
+        var eName = []
+        var eDescription = []
+        var eType = []
+        var eUrl = []
 
         for(let i = 0; i < workouts.length; i++){
             eId.push(workouts[i].id);

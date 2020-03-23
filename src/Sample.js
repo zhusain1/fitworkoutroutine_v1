@@ -76,12 +76,12 @@ class Sample extends React.Component {
         }>
         <Modal.Header>
           <Modal.Title>
-            Administrator Login
-            {this.state.errors === true &&
+          {this.state.errors === true &&
                 <div className="alert alert-danger" role="alert">
-                Invalid username/password
-             </div>
+                  Invalid username/password
+                </div>
             }
+            Administrator Login
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

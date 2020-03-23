@@ -13,13 +13,29 @@ class Create extends React.Component {
       title:'',
       type:'Chest',
       description:'',
-      notification:false
+      notification:false,
+      formErrors: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeFile = this.handleChangeFile.bind(this);
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeType = this.handleChangeType.bind(this);
     this.handleChangeDescription = this.handleChangeDescription.bind(this)
+    this.handleFormErrors = this.handleFormErrors.bind(this);
+  }
+
+  handleFormErrors(){
+    if(this.state.title.length < 1){
+      return true;
+    }
+    else if(this.state.description.length < 1){
+      return true;
+    }
+    else if(this.state.files == null){
+      return true;
+    } else{
+      return false;
+    }
   }
 
   handleSubmit(event){
@@ -29,51 +45,66 @@ class Create extends React.Component {
     // Save to DB
     var backend = 'https://workoutappapi.herokuapp.com/workout';
 
-    var workoutData =  {
-      workoutName: this.state.title,
-      workoutDescription: this.state.description,
-      workoutType: this.state.type,
-      workoutUrl: this.state.files.name
-    };
-    axios({
-      method: 'post',
-      url: backend,
-      data: workoutData,
-      headers: {'Content-Type': 'application/json' }
-      })
-      .then(function (response) {
-          //handle success
-          console.log(response);
-      })
-      .catch(function (response) {
-          //handle error
-          console.log(response);
-      });
+    if(!this.handleFormErrors()){
+      console.log("Inside");
 
+      var workoutData =  {
+        workoutName: this.state.title,
+        workoutDescription: this.state.description,
+        workoutType: this.state.type,
+        workoutUrl: this.state.files.name
+      };
       
-    // Save to S3
-    var server = 'https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/upload';
-
-    var bodyFormData = new FormData();
-    bodyFormData.append('file', this.state.files); 
-      
-    axios({
-      method: 'post',
-      url: server,
-      data: bodyFormData,
-      headers: {'Content-Type': 'application/x-www-form-urlencoded' }
-      })
-      .then(function (response){
-          //handle success
-          console.log(response);
-      })
-      .catch(function (response) {
-          //handle error
-          console.log(response);
-      });
+      axios({
+        method: 'post',
+        url: backend,
+        data: workoutData,
+        headers: {'Content-Type': 'application/json' }
+        })
+        .then((response) => {
+            //handle success
+            console.log(response);
+        })
+        .catch((response) => {
+            //handle error
+            console.log(response);
+        });
+  
+        
+      // Save to S3
+      var server = 'https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/upload';
+  
+      var bodyFormData = new FormData();
+      bodyFormData.append('file', this.state.files); 
+        
+      axios({
+        method: 'post',
+        url: server,
+        data: bodyFormData,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded' }
+        })
+        .then((response) =>{
+            //handle success
+            console.log(response);
+            this.setState({
+              notification: true,
+              formErrors: false,
+              files: null,
+              title: '',
+              type: 'Chest',
+              description: ''
+            });
+            console.log(this.state);
+        })
+        .catch((response) => {
+            //handle error
+            console.log(response);
+        });
+    } else{
       this.setState({
-        notification: true
+        formErrors: true
       });
+    }
   }
 
   handleChangeFile(event) {
@@ -104,17 +135,22 @@ class Create extends React.Component {
         }
         <Sample />
         <div className="card w-75">
+                {this.state.formErrors === true &&
+                  <div className="alert alert-danger" role="alert">
+                    Please fill out all fields
+                  </div>
+                }
                 <h2> Create an exercise </h2>
                 <form onSubmit={this.handleSubmit}>
                   <br/>
                   <div className="col-5">
                     <input type="text" className="form-control" placeholder="Title" 
-                    onChange={this.handleChangeTitle}/>
+                    onChange={this.handleChangeTitle} value={this.state.title}/>
                   </div>
                   <br/>
                   <div className="col-12">
                     <input type="text" className="form-control" placeholder="Description" 
-                    onChange = {this.handleChangeDescription}/>
+                    onChange = {this.handleChangeDescription} value={this.state.description}/>
                   </div>
                   <br/>
                   <div className="col-5"> 
@@ -133,7 +169,7 @@ class Create extends React.Component {
                     <small id="fileDescription" className="form-text text-muted">
                       Choose a video that is less than 100 mb
                     </small>
-                    <input type="file" onChange={this.handleChangeFile} className="form-control-file" />
+                    <input type="file" onChange={this.handleChangeFile} className="form-control-file"/>
                   </div>
                   <p>
                     <button type="submit" className="btn btn-primary">Create</button>
