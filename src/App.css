@@ -23,6 +23,10 @@ body{
     display: inline-block;
 }
 
+.video-react{
+  font-size: 16px !important;
+}
+
 .Image{
     display: block;
     margin-left: auto;

@@ -11,7 +11,7 @@ class Create extends React.Component {
     this.state ={
       files:null,
       title:'',
-      type:'',
+      type:'Chest',
       description:'',
       notification:false
     };
@@ -72,7 +72,7 @@ class Create extends React.Component {
           console.log(response);
       });
       this.setState({
-        notification: true
+        notification: true,
       });
   }
 
