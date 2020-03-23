@@ -72,7 +72,7 @@ class Create extends React.Component {
           console.log(response);
       });
       this.setState({
-        notification: true,
+        notification: true
       });
   }
 
