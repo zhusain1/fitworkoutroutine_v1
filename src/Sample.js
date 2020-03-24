@@ -85,6 +85,7 @@ class Sample extends React.Component {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <form onSubmit={this.handleSetShow} id="adminLogin">
           <div className="col-5">
           Username: 
               <input type="text" className="form-control" placeholder="username" 
@@ -98,11 +99,12 @@ class Sample extends React.Component {
               onChange={this.handlePassword} value={this.state.password}
               />
           </div>
+        </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={this.handleSetShow}>
-           Login
-          </Button>
+          <button type="submit" className="btn btn-primary"  form="adminLogin">
+            Login
+          </button>
           <Link to='/' > Close </Link>
         </Modal.Footer>
       </Modal>
