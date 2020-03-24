@@ -80,36 +80,38 @@ class Create extends React.Component {
   
       var bodyFormData = new FormData();
       bodyFormData.append('file', this.state.files); 
-        
-      axios({
-        method: 'post',
-        url: server,
-        data: bodyFormData,
-        headers: {'Content-Type': 'application/x-www-form-urlencoded' }
-        })
-        .then((response) =>{
-            //handle success
-            console.log(response);
-            this.setState({
-              notification: true,
-              formErrors: false,
-              files: null,
-              title: '',
-              type: 'Chest',
-              description: ''
-            });
-            console.log(this.state);
-        })
-        .catch((response) => {
-            //handle error
-            this.setState({
-              formErrors: true,
-              files: null,
-              title: '',
-              type: 'Chest',
-              description: ''
-            });
-        });
+      
+      if(!this.state.formErrors){
+        axios({
+          method: 'post',
+          url: server,
+          data: bodyFormData,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded' }
+          })
+          .then((response) =>{
+              //handle success
+              console.log(response);
+              this.setState({
+                notification: true,
+                formErrors: false,
+                files: null,
+                title: '',
+                type: 'Chest',
+                description: ''
+              });
+              console.log(this.state);
+          })
+          .catch((response) => {
+              //handle error
+              this.setState({
+                formErrors: true,
+                files: null,
+                title: '',
+                type: 'Chest',
+                description: ''
+              });
+          });
+      }
     } else{
       this.setState({
         formErrors: true
