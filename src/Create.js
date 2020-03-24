@@ -46,8 +46,6 @@ class Create extends React.Component {
     var backend = 'https://workoutappapi.herokuapp.com/workout';
 
     if(!this.handleFormErrors()){
-      console.log("Inside");
-
       var workoutData =  {
         workoutName: this.state.title,
         workoutDescription: this.state.description,
@@ -67,7 +65,13 @@ class Create extends React.Component {
         })
         .catch((response) => {
             //handle error
-            console.log(response);
+            this.setState({
+              formErrors: true,
+              files: null,
+              title: '',
+              type: 'Chest',
+              description: ''
+            });
         });
   
         
@@ -98,7 +102,13 @@ class Create extends React.Component {
         })
         .catch((response) => {
             //handle error
-            console.log(response);
+            this.setState({
+              formErrors: true,
+              files: null,
+              title: '',
+              type: 'Chest',
+              description: ''
+            });
         });
     } else{
       this.setState({
