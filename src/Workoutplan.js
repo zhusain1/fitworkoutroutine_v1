@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import Exercise from './Exercise';
+import {Card } from 'react-bootstrap';
 class Workoutplan extends Component {
     
     constructor(props){
@@ -54,13 +55,15 @@ class Workoutplan extends Component {
         return (
             <div>
                 <Navbar />
-                {this.state.workoutName.map((workout, index) => (
-                   <Exercise title= {this.state.workoutName[index]}   
-                        text={this.state.workoutDescription[index]}
-                        id={this.state.workoutId[index]} 
-                        key={index}> 
-                    </Exercise>
-                ))}
+                <Card className="card  w-75">
+                    {this.state.workoutName.map((workout, index) => (
+                    <Exercise title= {this.state.workoutName[index]}   
+                            text={this.state.workoutDescription[index]}
+                            id={this.state.workoutId[index]} 
+                            key={index}> 
+                        </Exercise>
+                    ))}
+                </Card>
             </div>
         );
     }

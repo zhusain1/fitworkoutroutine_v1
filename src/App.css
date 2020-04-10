@@ -62,14 +62,14 @@ body{
     float: left;
   }
   
-  li a {
+  .navItems li a {
     display: block;
     color: white;
     padding: 16px;
     text-decoration: none;
   }
   
-  li a:hover {
+  .navItems li a:hover {
     background-color: #111111;
     color: white;
   }

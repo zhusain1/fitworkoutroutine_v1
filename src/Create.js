@@ -43,7 +43,7 @@ class Create extends React.Component {
     console.log("File submitted and data submitted");
 
     // Save to DB
-    var backend = 'https://workoutappapi.herokuapp.com/workout';
+    var backend =  'http://localhost:8081/workout'; //'https://workoutappapi.herokuapp.com/workout';
 
     if(!this.handleFormErrors()){
       var workoutData =  {
@@ -76,7 +76,7 @@ class Create extends React.Component {
   
         
       // Save to S3
-      var server = 'https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/upload';
+      var server =  'http://localhost:8080/api/v1/workout-video/workoutVideo/upload' //'https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/upload';
   
       var bodyFormData = new FormData();
       bodyFormData.append('file', this.state.files); 

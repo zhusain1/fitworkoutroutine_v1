@@ -11,7 +11,6 @@ class Exercise extends Component {
         return (
             <div>
                 <Accordion>
-                    <Card className="card  w-75">
                         <Card.Header>
                         <Accordion.Toggle as={Button} variant="link" eventKey="0">
                             <h4> {this.props.title} </h4>
@@ -30,7 +29,6 @@ class Exercise extends Component {
                             />
                         </Card.Body>
                         </Accordion.Collapse>
-                    </Card>
                 </Accordion>
             </div>
         );
