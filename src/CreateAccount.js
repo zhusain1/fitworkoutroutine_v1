@@ -32,35 +32,39 @@ class CreateAccount extends React.Component {
   
     var backend = 'https://workoutappapi.herokuapp.com/admin/createAccount';
 
-    var loginData =  {
-      username: this.state.username,
-      password: this.state.password
-    };
-
-    var found = false;
-    axios({
-      method: 'post',
-      url: backend,
-      data: loginData,
-      headers: {'Content-Type': 'application/json' }
-      })
-      .then((response) => {
-          //handle success
-          console.log(response.data);
-          this.setState({
-            notication: true,
-            errors: false
-          })
-      })
-      .catch((response) => {
-          //handle error
-          console.log(response);
-          this.setState({ 
-            errors: true,
-            username: "",
-            password: ""
-          });
-      });
+    if(this.state.username.length > 5  && this.state.password > 5){
+      var loginData =  {
+        username: this.state.username,
+        password: this.state.password
+      };
+  
+      var found = false;
+      axios({
+        method: 'post',
+        url: backend,
+        data: loginData,
+        headers: {'Content-Type': 'application/json' }
+        })
+        .then((response) => {
+            //handle success
+            console.log(response.data);
+            this.setState({
+              notication: true,
+              errors: false
+            })
+        })
+        .catch((response) => {
+            //handle error
+            console.log(response);
+            this.setState({ 
+              errors: true,
+              username: "",
+              password: ""
+            });
+        });
+    } else{
+      this.setState({ errors: true });
+    }
   }
   render() {
     return (
