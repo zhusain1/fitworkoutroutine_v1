@@ -22,7 +22,7 @@ class UpdateExercise extends Component {
       if(cookies.get('code') !== undefined && cookies.get('code').length > 0){
         // Server call post code and check if code is valid
 
-        var backend = 'http://localhost:8081/admin/authorize';
+        var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
 
         const code =  {
           authCode: cookies.get('code')
