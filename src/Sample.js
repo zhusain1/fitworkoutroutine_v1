@@ -71,7 +71,7 @@ class Sample extends React.Component {
   handleSetShow(event){
     event.preventDefault() 
   
-    var backend = 'http://localhost:8081/admin/login';
+    var backend = 'https://workoutappapi.herokuapp.com/admin/login';
 
     var loginData =  {
       username: this.state.username,
