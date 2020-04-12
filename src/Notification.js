@@ -10,9 +10,11 @@ const Notification = (props) => {
   return (
     <div>
       <Toast isOpen={show}>
-        <ToastHeader toggle={toggle}>Upload successful</ToastHeader>
+        <ToastHeader toggle={toggle}>
+          {props.title}
+        </ToastHeader>
         <ToastBody>
-          Your workout was saved
+          {props.text}
         </ToastBody>
       </Toast>
     </div>

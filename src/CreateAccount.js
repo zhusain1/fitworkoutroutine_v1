@@ -1,61 +1,20 @@
 import React from "react";
-import {Button } from 'react-bootstrap';
-import {
-  Link
-} from "react-router-dom";
-import {
-	withRouter, Redirect
-} from 'react-router-dom';
 import axios from 'axios';
-import Cookies from 'universal-cookie';
 import Navbar from "./Navbar";
-  
-class Sample extends React.Component {
+import Notification from './Notification'
+
+class CreateAccount extends React.Component {
   constructor(props) {
     super(props);
 
     this.state ={
       username:"",
       password:"",
-      redirect:false,
-      errors:false
+      errors:false,
+      notication: false
     };
 
-
-    // Cookie stuff
-    const cookies = new Cookies();
-
-    /* Make call to check if code is valid from cookie */ 
-    if(cookies.get('code') !== undefined && cookies.get('code').length > 0){
-      // Server call post code and check if code is valid
-
-      var backend = 'http://localhost:8081/admin/authorize';
-
-      const code =  {
-        authCode: cookies.get('code')
-      };
-      axios({
-        method: 'post',
-        url: backend,
-        data: code,
-        headers: {'Content-Type': 'application/json' }
-        })
-        .then((response) => {
-            //handle success
-            console.log(response.data);
-            this.setState({
-              redirect:true
-            });
-        })
-        .catch((response) => {
-            //handle error
-            console.log(response);
-        });
-    }
-
-
-
-    this.handleSetShow = this.handleSetShow.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
   }
@@ -68,10 +27,10 @@ class Sample extends React.Component {
     this.setState({ password: event.target.value });
   }
 
-  handleSetShow(event){
+  handleSubmit(event){
     event.preventDefault() 
   
-    var backend = 'http://localhost:8081/admin/login';
+    var backend = 'https://workoutappapi.herokuapp.com/admin/createAccount';
 
     var loginData =  {
       username: this.state.username,
@@ -87,13 +46,11 @@ class Sample extends React.Component {
       })
       .then((response) => {
           //handle success
-          const cookies = new Cookies();
           console.log(response.data);
-          cookies.set('code', response.data, { path: '/' });
-          this.setState({ 
+          this.setState({
+            notication: true,
             errors: false
-          });
-          this.props.history.push('/exerciseManager', {validRoute: true});
+          })
       })
       .catch((response) => {
           //handle error
@@ -109,21 +66,18 @@ class Sample extends React.Component {
     return (
       <div>
         <Navbar />
-        {this.state.redirect === true ?
-          <Redirect to={{
-            pathname: '/exerciseManager',
-            state: { validRoute: true }
-        }}/>
-        :
+        {this.state.notication === true &&
+            <Notification title="Account Created" text="You can create/edit exercises"/>
+        }
         <div className="card  w-75">
             {this.state.errors === true &&
                   <div className="alert alert-danger" role="alert">
-                    Invalid username/password
+                    Error creating your account
                   </div>
               }
-            <h2> Administrator Login </h2>
+            <h2> Create Account </h2>
             
-              <form onSubmit={this.handleSetShow} id="adminLogin" >
+              <form onSubmit={this.handleSubmit} id="adminLogin" >
               <div className="form-group">
                 <div>
                     Username: 
@@ -136,13 +90,13 @@ class Sample extends React.Component {
               </div>
                 <p>
                   <button type="submit" className="btn btn-primary"  form="adminLogin">
-                    Login
+                    Create Account
                   </button>
                 </p>
               </form>
-        </div>}
+        </div>
       </div>
     );
   }
 }
-export default withRouter(Sample);
+export default CreateAccount

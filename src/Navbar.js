@@ -9,10 +9,10 @@ class Navbar extends Component {
                         <Link to="/">Workouts</Link>
                     </li>
                     <li>
-                        <Link to="/create">Create Exercise</Link>
+                        <Link to="/login">Manage Exercises</Link>
                     </li>
                     <li>
-                        <Link to="/edit">Edit Exercise</Link>
+                        <Link to="/createAccount">Create Account</Link>
                     </li>
                 </ul>
             </div>

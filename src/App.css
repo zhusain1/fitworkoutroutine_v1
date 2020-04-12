@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:600&display=swap');
 
-
 body{
     font-family: 'Titillium Web', sans-serif;
     background-color: #FCFAF9;
     font-size: 22px;
+}
+
+#adminLogin{
+  display: block;
+  margin-right: auto;
+  margin-left: auto
 }
 
 .card {
@@ -47,6 +52,10 @@ body{
     border-color: #5A5A66;
 }
 
+.list-group-item-action{
+  list-style: none;
+}
+
 .NavBar ul {
     list-style-type: none;
     margin: 0;
@@ -79,7 +88,6 @@ body{
     color:black;
     text-decoration: none;
   }
-
   /* Media Queries*/
   @media screen and (max-device-width: 500px) {
     body{
@@ -106,10 +114,5 @@ body{
     .alert-danger h4{
       font-size: 1rem;
     }
-
-    .modal-body .form-control {
-      font-size: 2rem;
-      width: 140%;
-    } 
   }
   

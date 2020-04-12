@@ -3,16 +3,46 @@ import Navbar from './Navbar'
 import axios from 'axios';
 import Sample from './Sample';
 import Notification from './Notification'
+import { Redirect } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 class UpdateExercise extends Component {
     constructor(props) {
         super(props);
-
+        var redirectFlag = false;
         const { match: { params } } = this.props;
-        console.log(params.exercise);
+        const cookies = new Cookies();
 
-        this.getWorkoutData(params.exercise)
+      // if there is no cookie
+      if(cookies.get('code') == undefined || !cookies.get('code').length > 0){
+        this.props.history.push('/');
+      }
       
+      /* Make call to check if code is valid from cookie */ 
+      if(cookies.get('code') !== undefined && cookies.get('code').length > 0){
+        // Server call post code and check if code is valid
+
+        var backend = 'http://localhost:8081/admin/authorize';
+
+        const code =  {
+          authCode: cookies.get('code')
+        };
+
+        axios({
+          method: 'post',
+          url: backend,
+          data: code,
+          headers: {'Content-Type': 'application/json' }
+          })
+          .then((response) => {
+              //handle success
+              console.log(response.data);
+          })
+          .catch((response) => {
+              //handle error
+              this.props.history.push('/');
+          });
+      }
         this.state ={
             files:null,
             title:'',
@@ -21,14 +51,22 @@ class UpdateExercise extends Component {
             id: 0,
             fileName: '',
             notification:false,
-            formErrors: false
-          };
-          this.handleSubmit = this.handleSubmit.bind(this);
-          this.handleChangeFile = this.handleChangeFile.bind(this);
-          this.handleChangeTitle = this.handleChangeTitle.bind(this);
-          this.handleChangeType = this.handleChangeType.bind(this);
-          this.handleChangeDescription = this.handleChangeDescription.bind(this)
-          this.handleFormErrors = this.handleFormErrors.bind(this);
+            formErrors: false,
+            redirect: redirectFlag
+        };
+ 
+        if(!redirectFlag){
+          this.getWorkoutData(params.exercise);
+        }
+
+        console.log(redirectFlag)
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChangeFile = this.handleChangeFile.bind(this);
+        this.handleChangeTitle = this.handleChangeTitle.bind(this);
+        this.handleChangeType = this.handleChangeType.bind(this);
+        this.handleChangeDescription = this.handleChangeDescription.bind(this)
+        this.handleFormErrors = this.handleFormErrors.bind(this);
     }
 
     getWorkoutData(id){
@@ -162,12 +200,15 @@ class UpdateExercise extends Component {
     render() {
         return (
         <div>
+            {this.state.redirect === true &&
+             <Redirect to="/"/>
+            }
+
             <Navbar />
             {this.state.notification === true &&
-              <Notification/>
+              <Notification title="Update Successful" text="Your workout was updated"/>
             }
             <div className="card  w-75">
-               <Sample/>
                {this.state.formErrors === true &&
                   <div className="alert alert-danger" role="alert">
                     Please fill out all fields

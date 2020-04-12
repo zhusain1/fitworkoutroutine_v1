@@ -4,8 +4,46 @@ import axios, { post } from 'axios';
 import Navbar from './Navbar'
 import Sample from './Sample'
 import Notification from './Notification'
+import Cookies from 'universal-cookie';
 
 class Create extends React.Component {
+
+  componentWillMount(){
+    const cookies = new Cookies();
+
+    // if there is no cookie
+    if(cookies.get('code') == undefined || !cookies.get('code').length > 0){
+      this.props.history.push('/');
+    }
+
+    /* Make call to check if code is valid from cookie */ 
+    if(cookies.get('code') !== undefined && cookies.get('code').length > 0){
+      // Server call post code and check if code is valid
+
+      var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
+
+      const code =  {
+        authCode: cookies.get('code')
+      };
+
+      axios({
+        method: 'post',
+        url: backend,
+        data: code,
+        headers: {'Content-Type': 'application/json' }
+        })
+        .then((response) => {
+            //handle success
+            console.log(response.data);
+        })
+        .catch((response) => {
+            //handle error
+            this.props.history.push('/');
+        });
+    }
+
+  }
+
   constructor(props) {
     super(props);
     this.state ={
@@ -43,7 +81,7 @@ class Create extends React.Component {
     console.log("File submitted and data submitted");
 
     // Save to DB
-    var backend =  'http://localhost:8081/workout'; //'https://workoutappapi.herokuapp.com/workout';
+    var backend =  'https://workoutappapi.herokuapp.com/workout';
 
     if(!this.handleFormErrors()){
       var workoutData =  {
@@ -76,7 +114,7 @@ class Create extends React.Component {
   
         
       // Save to S3
-      var server =  'http://localhost:8080/api/v1/workout-video/workoutVideo/upload' //'https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/upload';
+      var server =  'https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/upload';
   
       var bodyFormData = new FormData();
       bodyFormData.append('file', this.state.files); 
@@ -143,9 +181,8 @@ class Create extends React.Component {
       <div className="Create">
         <Navbar />
         {this.state.notification === true &&
-          <Notification/>
+          <Notification title="Upload successful" text="Your workout was saved"/>
         }
-        <Sample />
         <div className="card w-75">
                 {this.state.formErrors === true &&
                   <div className="alert alert-danger" role="alert">

@@ -9,7 +9,7 @@ class EditExercise extends Component {
         <div>
             <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                    <a href={'/Edit/Exercise/' + this.props.id}>
+                    <a href={'/edit/exercise/' + this.props.id }>
                         {this.props.title}
                     </a>
                 </li>
