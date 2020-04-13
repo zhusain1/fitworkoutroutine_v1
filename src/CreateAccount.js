@@ -32,7 +32,7 @@ class CreateAccount extends React.Component {
   
     var backend = 'https://workoutappapi.herokuapp.com/admin/createAccount';
 
-    if(this.state.username.length > 5  && this.state.password > 5){
+    if(this.state.username.length > 5  && this.state.password.length > 5){
       var loginData =  {
         username: this.state.username,
         password: this.state.password
