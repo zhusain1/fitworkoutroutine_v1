@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 
 const Notification = (props) => {
-  const { buttonLabel } = props;
   const [show, setShow] = useState(true);
 
   const toggle = () => setShow(!show);

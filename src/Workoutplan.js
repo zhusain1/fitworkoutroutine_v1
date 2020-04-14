@@ -6,12 +6,13 @@ class Workoutplan extends Component {
     
     constructor(props){
         super(props);
+        var workouts;
         try{
-            var workouts = this.props.history.location.state.workout;        
+            workouts = this.props.history.location.state.workout;        
         }catch(error){
             console.log("ERROR");
             console.log(workouts);
-            var workouts = {}
+            workouts = {}
             this.props.history.push('/error');
         }
 

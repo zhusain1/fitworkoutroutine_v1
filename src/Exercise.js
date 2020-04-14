@@ -4,9 +4,6 @@ import { Player } from 'video-react';
 import "../node_modules/video-react/dist/video-react.css"; // import css
 
 class Exercise extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div>
