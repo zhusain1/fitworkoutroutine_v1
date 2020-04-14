@@ -1,11 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Navbar from './Navbar'
 import EditExercise from './EditExercise';
-import {
-	withRouter
-} from 'react-router-dom';
 
 class Edit extends React.Component {
   constructor(props) {
