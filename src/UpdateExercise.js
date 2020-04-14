@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar'
 import axios from 'axios';
-import Sample from './Sample';
 import Notification from './Notification'
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
@@ -14,7 +13,7 @@ class UpdateExercise extends Component {
         const cookies = new Cookies();
 
         // if there is no cookie
-        if(cookies.get('code') == undefined || !cookies.get('code').length > 0){
+        if(cookies.get('code') === undefined || !cookies.get('code').length > 0){
           this.props.history.push('/');
         }
         

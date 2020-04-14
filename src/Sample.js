@@ -74,7 +74,6 @@ class Sample extends React.Component {
       password: this.state.password
     };
 
-    var found = false;
     axios({
       method: 'post',
       url: backend,

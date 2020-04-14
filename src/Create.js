@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import axios, { post } from 'axios';
+import axios from 'axios';
 import Navbar from './Navbar'
-import Sample from './Sample'
 import Notification from './Notification'
 import Cookies from 'universal-cookie';
 
@@ -12,7 +10,7 @@ class Create extends React.Component {
     const cookies = new Cookies();
 
     // if there is no cookie
-    if(cookies.get('code') == undefined || !cookies.get('code').length > 0){
+    if(cookies.get('code') === undefined || !cookies.get('code').length > 0){
       this.props.history.push('/');
     }
 

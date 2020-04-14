@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Toast, ToastBody, ToastHeader } from 'reactstrap';
+import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 
 const Notification = (props) => {
   const { buttonLabel } = props;

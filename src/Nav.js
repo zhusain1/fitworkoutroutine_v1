@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import App from './App';
 import Workoutplan from './Workoutplan';
-import Navbar from './Navbar';
 import Create from './Create';
 import Edit from './Edit';
 import ErrorPage from './ErrorPage';

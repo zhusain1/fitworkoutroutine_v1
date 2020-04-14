@@ -7,10 +7,6 @@ import logo from './logo.jpg';
 import { Link } from 'react-router-dom';
 
 class ErrorPage extends Component {
-    constructor(props){
-        super(props)
-    }
-
     render() {
         return (
             <div className="Errorpage">
