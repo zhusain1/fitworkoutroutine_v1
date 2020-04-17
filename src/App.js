@@ -6,6 +6,7 @@ import './App.css'
 import Navbar from './Navbar';
 import logo from './logo.jpg';
 import axios from 'axios';
+import Info from './Info'
 
 class App extends Component {
     constructor(props){
@@ -41,6 +42,7 @@ class App extends Component {
             <div className="App">
                 <Navbar />
                 <div className="card  w-75">
+                    <Info />
                     <h2> Workout Routine </h2>
                     <img src={logo} alt="Logo" width="100" height="100" className="Image"/>
                     <form onSubmit={this.handleSubmit}>

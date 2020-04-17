@@ -116,7 +116,7 @@ class Sample extends React.Component {
                     Invalid username/password
                   </div>
               }
-            <h2> Administrator Login </h2>
+            <h2> Exercise Manager </h2>
             
               <form onSubmit={this.handleSetShow} id="adminLogin" >
               <div className="form-group">
