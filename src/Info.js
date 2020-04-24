@@ -10,7 +10,7 @@ const Info = (props) => {
 
   return (
     <div>
-        <input type="image" src={info}  id="info"  width="45" height="45"/>
+        <input type="image" src={info} alt="info"  id="info"  width="45" height="45"/>
         <Popover placement="bottom" isOpen={popoverOpen} target="info" toggle={toggle}>
         <PopoverHeader>About Workout Routine</PopoverHeader>
         <PopoverBody>

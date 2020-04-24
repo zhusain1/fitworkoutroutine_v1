@@ -8,6 +8,8 @@ import UpdateExercise from './UpdateExercise';
 import Sample from './Sample';
 import ExerciseManager from './ExerciseManager';
 import CreateAccount from './CreateAccount';
+import Delete from './Delete';
+import RemoveExercise from './RemoveExercise';
 import {
     BrowserRouter as Router,
     Route,
@@ -22,8 +24,10 @@ class Nav extends Component {
                     <Route exact path="/" component={App} /> 
                     <Route exact path="/create" component={Create} />
                     <Route exact path="/edit" component={Edit} />
+                    <Route exact path="/delete" component={Delete} />
                     <Route exact path="/workoutplan" component={Workoutplan} />
                     <Route exact path="/edit/exercise/:exercise" component={UpdateExercise} />
+                    <Route exact path="/delete/exercise/:exercise" component={RemoveExercise} />
                     <Route exact path="/login" component={Sample} />
                     <Route exact path="/exerciseManager" component={ExerciseManager} />
                     <Route exact path="/createAccount" component={CreateAccount} />

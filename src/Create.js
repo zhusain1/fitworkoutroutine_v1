@@ -69,7 +69,11 @@ class Create extends React.Component {
     }
     else if(this.state.files == null){
       return true;
-    } else{
+    }
+    else if(this.state.files.size >= 100000000){
+      return true;
+    } 
+    else{
       return false;
     }
   }

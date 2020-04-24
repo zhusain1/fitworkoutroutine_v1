@@ -44,6 +44,11 @@ class ExerciseManager extends Component {
                             </Link>
                         </li>
                         <li className="list-group-item">
+                            <Link to='/delete'>
+                                Delete
+                            </Link>
+                        </li>
+                        <li className="list-group-item">
                             <button className="btn btn-primary" onClick={this.handleLogout}>
                                 Logout
                             </button>
