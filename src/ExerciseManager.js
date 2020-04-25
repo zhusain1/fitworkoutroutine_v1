@@ -34,22 +34,22 @@ class ExerciseManager extends Component {
                     <h2> Exercise Manager </h2>
                     <ul className="list-group">
                         <li className="list-group-item">
-                            <Link to='/create'>
+                            <Link to='/create' className="btn btn-primary btn-lg btn-block">
                                 Create
                             </Link>
                         </li>
                         <li className="list-group-item">
-                            <Link to='/edit'>
+                            <Link to='/edit' className="btn btn-primary btn-lg btn-block">
                                 Edit
                             </Link>
                         </li>
                         <li className="list-group-item">
-                            <Link to='/delete'>
+                            <Link to='/delete' className="btn btn-primary btn-lg btn-block">
                                 Delete
                             </Link>
                         </li>
                         <li className="list-group-item">
-                            <button className="btn btn-primary" onClick={this.handleLogout}>
+                            <button className="btn btn-secondary" onClick={this.handleLogout}>
                                 Logout
                             </button>
                         </li>

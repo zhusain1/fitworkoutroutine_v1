@@ -12,6 +12,13 @@ body{
   margin-left: auto
 }
 
+.btn-block {
+  display: block;
+  margin: 0 auto;
+  width: 50%; 
+  text-align: center;
+}
+
 #info{
   float:left;
   margin-left: 20px;
@@ -98,6 +105,13 @@ body{
   @media screen and (max-device-width: 500px) {
     body{
       font-size: 20px;  
+    }
+
+    .btn-block {
+      display: block;
+      margin: 0 auto;
+      width: 100%; 
+      text-align: center;
     }
 
     .col-3{
