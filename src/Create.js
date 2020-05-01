@@ -32,7 +32,6 @@ class Create extends React.Component {
         })
         .then((response) => {
             //handle success
-            console.log(response.data);
         })
         .catch((response) => {
             //handle error
@@ -67,7 +66,7 @@ class Create extends React.Component {
     else if(this.state.description.length < 1){
       return true;
     }
-    else if(this.state.files == null){
+    else if(this.state.files === null){
       return true;
     }
     else if(this.state.files.size >= 100000000){
@@ -80,7 +79,6 @@ class Create extends React.Component {
 
   handleSubmit(event){
     event.preventDefault() 
-    console.log("File submitted and data submitted");
 
     // Save to DB
     var backend =  'https://workoutappapi.herokuapp.com/workout';
@@ -92,7 +90,7 @@ class Create extends React.Component {
         workoutType: this.state.type,
         workoutUrl: this.state.files.name
       };
-      
+
       axios({
         method: 'post',
         url: backend,
@@ -101,7 +99,6 @@ class Create extends React.Component {
         })
         .then((response) => {
             //handle success
-            console.log(response);
         })
         .catch((response) => {
             //handle error
@@ -121,7 +118,7 @@ class Create extends React.Component {
       var bodyFormData = new FormData();
       bodyFormData.append('file', this.state.files); 
       
-      if(!this.state.formErrors){
+      if(!this.handleFormErrors()){
         axios({
           method: 'post',
           url: server,
@@ -130,7 +127,6 @@ class Create extends React.Component {
           })
           .then((response) =>{
               //handle success
-              console.log(response);
               this.setState({
                 notification: true,
                 formErrors: false,
@@ -139,7 +135,6 @@ class Create extends React.Component {
                 type: 'Chest',
                 description: ''
               });
-              console.log(this.state);
           })
           .catch((response) => {
               //handle error
@@ -161,8 +156,6 @@ class Create extends React.Component {
 
   handleChangeFile(event) {
     let files = event.target.files;
-
-    console.log(files);
     this.setState({ files: files[0] });
   }
 
