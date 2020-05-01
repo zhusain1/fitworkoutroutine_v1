@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navbar from './Navbar'
 import Notification from './Notification'
 import Cookies from 'universal-cookie';
+import { Spinner } from 'reactstrap';
 
 class Create extends React.Component {
 
@@ -48,7 +49,8 @@ class Create extends React.Component {
       title:'',
       type:'Chest',
       description:'',
-      notification:false,
+      notification: false,
+      loading: false,
       formErrors: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -99,11 +101,15 @@ class Create extends React.Component {
         })
         .then((response) => {
             //handle success
+            this.setState({
+              loading: true
+            })
         })
         .catch((response) => {
             //handle error
             this.setState({
               formErrors: true,
+              loading: false,
               files: null,
               title: '',
               type: 'Chest',
@@ -130,6 +136,7 @@ class Create extends React.Component {
               this.setState({
                 notification: true,
                 formErrors: false,
+                loading: false,
                 files: null,
                 title: '',
                 type: 'Chest',
@@ -175,6 +182,11 @@ class Create extends React.Component {
     return (
       <div className="Create">
         <Navbar />
+
+        {this.state.loading === true &&
+          <div id="info"> Uploading <Spinner color="dark" /> </div>
+        }
+
         {this.state.notification === true &&
           <Notification title="Upload successful" text="Your workout was saved"/>
         }
