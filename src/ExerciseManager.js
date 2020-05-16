@@ -5,6 +5,7 @@ import {
 import './App.css'
 import Navbar from './Navbar';
 import Cookies from 'universal-cookie';
+import Brand from './Brand';
 
 class ExerciseManager extends Component {
     constructor(props){
@@ -30,6 +31,7 @@ class ExerciseManager extends Component {
         return (
             <div className="ExerciseManager">
                 <Navbar/>
+                <Brand/>
                 <div className="card w-75">
                     <h2> Exercise Manager </h2>
                     <ul className="list-group">

@@ -5,6 +5,7 @@ import {
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import Navbar from "./Navbar";
+import Brand from './Brand';
   
 class Sample extends React.Component {
   constructor(props) {
@@ -104,6 +105,7 @@ class Sample extends React.Component {
     return (
       <div>
         <Navbar />
+        <Brand/>
         {this.state.redirect === true ?
           <Redirect to={{
             pathname: '/exerciseManager',

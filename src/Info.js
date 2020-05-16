@@ -12,7 +12,7 @@ const Info = (props) => {
     <div>
         <input type="image" src={info} alt="info"  id="info"  width="45" height="45"/>
         <Popover placement="bottom" isOpen={popoverOpen} target="info" toggle={toggle}>
-        <PopoverHeader>About Workout Routine</PopoverHeader>
+        <PopoverHeader>About Fit Workout Routine</PopoverHeader>
         <PopoverBody>
             Select a body part to workout with video tutorials for each exercise.
             You can create an account to upload or edit existing exercises by clicking 

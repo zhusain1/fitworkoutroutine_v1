@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import logo from './logo.jpg';
 import axios from 'axios';
 import Info from './Info'
+import Brand from './Brand';
 
 class App extends Component {
     constructor(props){
@@ -41,12 +42,12 @@ class App extends Component {
         return (
             <div className="App">
                 <Navbar />
+                <Brand/>
                 <div className="card  w-75">
                     <Info />
-                    <h2> Workout Routine </h2>
-                    <img src={logo} alt="Logo" width="100" height="100" className="Image"/>
+                    <h2> Find Exercises</h2>
                     <form onSubmit={this.handleSubmit}>
-                        <label htmlFor="bodyPart"> Body part to workout today: </label>
+                        <label htmlFor="bodyPart"> Focus workout on: </label>
                         <br/>
                         <div className="col-3">
                         <select className="form-control" value={this.state.bodyPart} onChange={this.handleBodyPartChange}>

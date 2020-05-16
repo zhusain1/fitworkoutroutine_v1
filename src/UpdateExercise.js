@@ -4,6 +4,7 @@ import axios from 'axios';
 import Notification from './Notification'
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import Brand from './Brand';
 
 class UpdateExercise extends Component {
     constructor(props) {
@@ -204,6 +205,7 @@ class UpdateExercise extends Component {
             }
 
             <Navbar />
+            <Brand/>
             {this.state.notification === true &&
               <Notification title="Update Successful" text="Your workout was updated"/>
             }

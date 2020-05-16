@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Notification from './Notification'
 import Cookies from 'universal-cookie';
 import { Spinner } from 'reactstrap';
+import Brand from './Brand';
 
 class Create extends React.Component {
 
@@ -182,6 +183,7 @@ class Create extends React.Component {
     return (
       <div className="Create">
         <Navbar />
+        <Brand/>
 
         {this.state.loading === true &&
           <div id="info"> Uploading <Spinner color="dark" /> </div>
