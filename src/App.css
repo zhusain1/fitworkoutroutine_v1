@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:600&display=swap');
 
 body{
-    font-family: 'Titillium Web', sans-serif;
-    background-color: #FCFAF9;
-    font-size: 22px;
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #FCFAF9;
+  font-size: 22px;
+}
+
+.w-75 select{
+  min-width: 70px;
 }
 
 #adminLogin{
