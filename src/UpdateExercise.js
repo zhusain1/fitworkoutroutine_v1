@@ -246,7 +246,7 @@ class UpdateExercise extends Component {
                   </div>
                   <div className="col-12">
                     <small id="fileDescription" className="form-text text-muted">
-                      Choose a video that is less than 100 mb
+                      Choose a video that is less than 60 mb
                     </small>
                     <input type="file" onChange={this.handleChangeFile} className="form-control-file"/>
                   </div>

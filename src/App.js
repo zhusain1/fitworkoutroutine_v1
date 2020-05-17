@@ -4,10 +4,11 @@ import {
 } from 'react-router-dom';
 import './App.css'
 import Navbar from './Navbar';
-import logo from './logo.jpg';
 import axios from 'axios';
 import Info from './Info'
 import Brand from './Brand';
+import { Jumbotron } from 'reactstrap';
+import bgimage from './barbell.jpg'
 
 class App extends Component {
     constructor(props){
@@ -42,7 +43,9 @@ class App extends Component {
         return (
             <div className="App">
                 <Navbar />
-                <Brand/>
+                <Jumbotron style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover' }}>
+                    <Brand/>
+                </Jumbotron>
                 <div className="card  w-75">
                     <Info />
                     <h2> Find Exercises</h2>

@@ -72,7 +72,7 @@ class Create extends React.Component {
     else if(this.state.files === null){
       return true;
     }
-    else if(this.state.files.size >= 100000000){
+    else if(this.state.files.size >= 60000000){
       return true;
     } 
     else{
@@ -225,7 +225,7 @@ class Create extends React.Component {
                   <br/>
                   <div className="col-12">
                     <small id="fileDescription" className="form-text text-muted">
-                      Choose a video that is less than 100 mb
+                      Choose a video that is less than 60 mb
                     </small>
                     <input type="file" onChange={this.handleChangeFile} className="form-control-file"/>
                   </div>

@@ -2,8 +2,29 @@
 
 body{
   font-family: 'Titillium Web', sans-serif;
-  background-color: #FCFAF9;
+  background-color: #191716;
   font-size: 22px;
+  color:white;
+}
+
+.toast-body{
+  color:black;
+}
+
+.popover-header{
+  color: black;
+}
+
+h1,h2,h3,h4{
+  color:white;
+}
+
+.jumbotron {
+  border-radius: 0;
+}
+
+.Brand h2{
+  color: white;
 }
 
 .w-75 select{
@@ -44,7 +65,12 @@ body{
 }
 .w-75{
   width: 45% !important;
+  background-color: #2F2F2F;
 }
+.list-group-item{
+  background-color: #2F2F2F;
+}
+
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -134,6 +160,13 @@ body{
     text-align: center;
   }
 
+  .jumbotron {
+    border-radius: 0;
+    margin-top: -24px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
   .btn-block {
     display: block;
     margin: 0 auto;
@@ -175,6 +208,10 @@ body{
 
   .btn-primary {
     font-size: 20px;
+  }
+
+  .btn-seconday{
+    background-color: #4B5358;
   }
   
   h2, .h2 {

@@ -3,7 +3,7 @@ import {
 	withRouter
 } from 'react-router-dom';
 import Navbar from './Navbar';
-import logo from './logo.jpg';
+import logo from './logo-transparent.png';
 import { Link } from 'react-router-dom';
 
 class ErrorPage extends Component {
