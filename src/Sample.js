@@ -2,6 +2,7 @@ import React from "react";
 import {
 	withRouter, Redirect
 } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import Navbar from "./Navbar";
@@ -131,11 +132,19 @@ class Sample extends React.Component {
                     onChange={this.handlePassword} value={this.state.password}/>
                 </div>
               </div>
-                <p>
-                  <button type="submit" className="btn btn-primary"  form="adminLogin">
-                    Login
-                  </button>
-                </p>
+                <div className="row">
+                  <div className="col">
+                    <button type="submit" className="btn btn-primary" form="adminLogin">
+                      Login
+                    </button>
+                  </div>
+                  <div className="col">
+                    <Link to="/createAccount">
+                      <button className="btn btn-secondary" >Create Account </button>
+                    </Link>
+                  </div>
+                </div>
+                <br/>
               </form>
         </div>}
       </div>

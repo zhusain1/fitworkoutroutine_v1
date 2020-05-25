@@ -27,6 +27,10 @@ h1,h2,h3,h4{
   color: white;
 }
 
+a{
+  color:white;
+}
+
 .w-75 select{
   min-width: 70px;
 }
@@ -150,6 +154,15 @@ h1,h2,h3,h4{
   text-decoration: none;
 }
 
+button.btn-secondary{
+  background-color: #565656;
+  border-color: #565656;
+}
+
+.row button{
+  width: 124px;
+}
+
 /* Media Queries*/
 @media screen and (max-device-width: 500px) {
   body{
@@ -206,14 +219,10 @@ h1,h2,h3,h4{
     text-align: center;
   }
 
-  .btn-primary {
+  .btn-primary .btn-seconday {
     font-size: 20px;
   }
 
-  .btn-seconday{
-    background-color: #4B5358;
-  }
-  
   h2, .h2 {
     font-size: 2rem;
   }
