@@ -6,7 +6,6 @@ import './App.css'
 import Navbar from './Navbar';
 import axios from 'axios';
 import Info from './Info'
-import Brand from './Brand';
 
 class App extends Component {
     constructor(props){
@@ -41,7 +40,6 @@ class App extends Component {
         return (
             <div className="App">
                 <Navbar />
-                <Brand/>
                 <div className="card  w-75">
                     <Info />
                     <h2> Find Exercises</h2>

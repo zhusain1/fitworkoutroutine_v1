@@ -3,7 +3,6 @@ import Navbar from './Navbar'
 import axios from 'axios';
 import Notification from './Notification'
 import { Redirect } from 'react-router-dom';
-import Brand from './Brand';
 import Cookies from 'universal-cookie';
 
 class RemoveExercise extends Component {
@@ -159,7 +158,6 @@ class RemoveExercise extends Component {
             }
 
             <Navbar />
-            <Brand/>
             {this.state.notification === true &&
               <Notification title="Update Successful" text="Your workout was deleted"/>
             }
