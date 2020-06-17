@@ -11,6 +11,13 @@ body{
   padding: 15px;
 }
 
+input[type=text], input[type=password], select {
+  color: white !important;
+  background-color: #020202 !important;
+  border: #020202;
+  outline: none;
+}
+
 .alert-danger {
   color: white;
   background-color: #721c24;
@@ -23,7 +30,7 @@ body{
 }
 
 .popover-header{
-  color: black;
+  color: white;
 }
 
 h1,h2,h3,h4{

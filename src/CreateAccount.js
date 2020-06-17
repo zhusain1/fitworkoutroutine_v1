@@ -82,14 +82,12 @@ class CreateAccount extends React.Component {
             
               <form onSubmit={this.handleSubmit} id="adminLogin" >
               <div className="form-group">
-                <div>
                     Username: 
                     <input type="text" className="form-control" placeholder="username" 
                     onChange={this.handleUsername} value={this.state.username}/>
                      Password:
                     <input type="password" className="form-control" placeholder="password" 
                     onChange={this.handlePassword} value={this.state.password}/>
-                </div>
               </div>
                 <p>
                   <button type="submit" className="btn btn-primary"  form="adminLogin">
