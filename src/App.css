@@ -88,12 +88,15 @@ a{
 }
 
 .ImageLogo{
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.Brand img{
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility:    hidden;
+  -ms-backface-visibility:     hidden;
 }
 
 .btn-primary {
