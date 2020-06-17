@@ -7,6 +7,10 @@ body{
   color:white;
 }
 
+.Errorpage .card{
+  padding: 15px;
+}
+
 .alert-danger {
   color: white;
   background-color: #721c24;
