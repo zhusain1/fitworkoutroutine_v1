@@ -88,7 +88,9 @@ a{
 }
 
 .ImageLogo{
-    -webkit-transform:translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
     display: block;
     margin-left: auto;
     margin-right: auto;
