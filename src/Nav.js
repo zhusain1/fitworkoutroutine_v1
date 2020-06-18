@@ -15,13 +15,11 @@ import {
     Route,
     Switch,
 } from "react-router-dom";
-import Navbar from './Navbar';
 
 class Nav extends Component {
     render() {
         return (   
             <Router>
-                <Navbar/>
                 <Switch>
                     <Route exact path="/" component={App} /> 
                     <Route exact path="/create" component={Create} />

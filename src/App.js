@@ -3,6 +3,7 @@ import {
 	withRouter
 } from 'react-router-dom';
 import './App.css'
+import Navbar from './Navbar';
 import axios from 'axios';
 import Info from './Info'
 
@@ -38,6 +39,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <Navbar />
                 <div className="card  w-75">
                     <Info />
                     <h2> Find Exercises</h2>

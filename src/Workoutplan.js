@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from './Navbar';
 import Exercise from './Exercise';
 import {Card } from 'react-bootstrap';
 class Workoutplan extends Component {
@@ -54,6 +55,7 @@ class Workoutplan extends Component {
     render() {
         return (
             <div>
+                <Navbar />
                 <Card className="card  w-75">
                     {this.state.workoutName.map((workout, index) => (
                     <Exercise title= {this.state.workoutName[index]}   

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import Navbar from "./Navbar";
 import Notification from './Notification'
 
 class CreateAccount extends React.Component {
@@ -67,6 +68,7 @@ class CreateAccount extends React.Component {
   render() {
     return (
       <div>
+        <Navbar />
         {this.state.notication === true &&
             <Notification title="Account Created" text="You can create/edit exercises"/>
         }
