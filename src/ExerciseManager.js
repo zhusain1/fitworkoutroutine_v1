@@ -3,7 +3,6 @@ import {
 	withRouter, Link
 } from 'react-router-dom';
 import './App.css'
-import Navbar from './Navbar';
 import Cookies from 'universal-cookie';
 
 class ExerciseManager extends Component {
@@ -29,7 +28,6 @@ class ExerciseManager extends Component {
     render() {
         return (
             <div className="ExerciseManager">
-                <Navbar/>
                 <div className="card w-75">
                     <h2> Exercise Manager </h2>
                     <ul className="list-group">

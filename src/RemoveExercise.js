@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar'
 import axios from 'axios';
 import Notification from './Notification'
 import { Redirect } from 'react-router-dom';
@@ -156,8 +155,6 @@ class RemoveExercise extends Component {
             {this.state.redirect === true &&
              <Redirect to="/"/>
             }
-
-            <Navbar />
             {this.state.notification === true &&
               <Notification title="Update Successful" text="Your workout was deleted"/>
             }
