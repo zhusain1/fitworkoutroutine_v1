@@ -102,7 +102,8 @@ class Create extends React.Component {
         .then((response) => {
             //handle success
             this.setState({
-              loading: true
+              loading: true,
+              notification: false
             })
         })
         .catch((response) => {
