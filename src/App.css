@@ -11,6 +11,11 @@ body{
   padding: 15px;
 }
 
+.footer{
+  text-align: center;
+  padding-top: 100px;
+}
+
 input[type=text], input[type=password], select {
   color: white !important;
   background-color: #020202 !important;
@@ -50,7 +55,7 @@ a{
 }
 
 .w-75 select{
-  min-width: 70px;
+  min-width: 100px;
 }
 
 #adminLogin{
@@ -112,12 +117,6 @@ a{
     margin-right: auto;
 }
 
-.Brand img{
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility:    hidden;
-  -ms-backface-visibility:     hidden;
-}
-
 .btn-primary {
     color: #fff;
     background-color: black !important;
@@ -156,6 +155,7 @@ a{
   
 .NavBar{
   width: 100%;
+  padding-bottom: 10px;
 }
 .NavBar >ul >li {
   float: left;
@@ -166,6 +166,10 @@ a{
   color: white;
   padding: 16px;
   text-decoration: none;
+}
+
+.navbar-light .navbar-toggler-icon{
+  background-image: url('./menu.png');
 }
 
 .navItems li a:hover {
@@ -192,6 +196,11 @@ button.btn-secondary{
 @media screen and (max-device-width: 500px) {
   body{
     font-size: 20px;  
+  }
+  
+  .footer{
+    text-align: center;
+    padding-top: 40px;
   }
 
   .Brand{
@@ -244,7 +253,6 @@ button.btn-secondary{
   }
 
   .card {
-    margin-top: -10px;
     text-align: center;
   }
 

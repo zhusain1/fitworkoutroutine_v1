@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Navbar from './Navbar'
+import NavBar from './NavBar'
 import Notification from './Notification'
 import Cookies from 'universal-cookie';
 import { Spinner } from 'reactstrap';
@@ -181,7 +181,7 @@ class Create extends React.Component {
   render() {
     return (
       <div className="Create">
-        <Navbar />
+        <NavBar />
 
         {this.state.loading === true &&
           <div id="info"> Uploading <Spinner color="dark" /> </div>
@@ -199,7 +199,7 @@ class Create extends React.Component {
                 <h2> Create an exercise </h2>
                 <form onSubmit={this.handleSubmit}>
                   <br/>
-                  <div className="col-5">
+                  <div className="col-12">
                     <input type="text" className="form-control" placeholder="Title" 
                     onChange={this.handleChangeTitle} value={this.state.title}/>
                   </div>

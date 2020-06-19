@@ -10,6 +10,8 @@ import ExerciseManager from './ExerciseManager';
 import CreateAccount from './CreateAccount';
 import Delete from './Delete';
 import RemoveExercise from './RemoveExercise';
+import Brand from './Brand';
+import Footer from './Footer'
 import {
     BrowserRouter as Router,
     Route,
@@ -20,6 +22,7 @@ class Nav extends Component {
     render() {
         return (   
             <Router>
+                <Brand/>
                 <Switch>
                     <Route exact path="/" component={App} /> 
                     <Route exact path="/create" component={Create} />
@@ -33,6 +36,7 @@ class Nav extends Component {
                     <Route exact path="/createAccount" component={CreateAccount} />
                     <Route component={ErrorPage} />
                 </Switch>
+                <Footer/>
             </Router>
         );
     }

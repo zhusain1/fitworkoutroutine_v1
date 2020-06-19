@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Navbar from './Navbar'
+import NavBar from './NavBar'
 import EditExercise from './EditExercise';
 
 class Edit extends React.Component {
@@ -47,7 +47,7 @@ handleSubmit(event){
   render() {
     return (
         <div className="Edit">
-            <Navbar />
+            <NavBar />
             <div className="card  w-75">
             <h2> Select Workout to Edit </h2>
               {this.state.workoutNames.length > 0 &&
