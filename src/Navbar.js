@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import Brand from './Brand';
 class Navbar extends Component {
     constructor(props){
         super(props)
@@ -65,7 +64,6 @@ class Navbar extends Component {
                         <Link to="/createAccount">Create Account</Link>
                     </li>
                 </ul>
-                <Brand/>
             </div>
         );
     }

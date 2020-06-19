@@ -216,7 +216,7 @@ class UpdateExercise extends Component {
                <h2>Edit Exercise</h2>
                <form onSubmit={this.handleSubmit}>
                   <br/>
-                  <div className="col-5">
+                  <div className="col-12">
                     <input type="text" className="form-control" placeholder="Title" 
                     onChange={this.handleChangeTitle} value={this.state.title}/>
                   </div>
