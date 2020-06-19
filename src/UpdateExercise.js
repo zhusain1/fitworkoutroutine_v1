@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar'
+import Navigationbar from './Navigationbar'
 import axios from 'axios';
 import Notification from './Notification'
 import { Redirect } from 'react-router-dom';
@@ -203,7 +203,7 @@ class UpdateExercise extends Component {
              <Redirect to="/"/>
             }
 
-            <NavBar />
+            <Navigationbar />
             {this.state.notification === true &&
               <Notification title="Update Successful" text="Your workout was updated"/>
             }

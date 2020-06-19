@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-class NavBar extends Component {
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+class Navigationbar extends Component {
     constructor(props){
         super(props)
 
@@ -77,4 +77,4 @@ class NavBar extends Component {
         );
     }
 }
-export default NavBar;
+export default Navigationbar;

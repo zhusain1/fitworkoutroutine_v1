@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import NavBar from './NavBar'
+import Navigationbar from './Navigationbar'
 import Notification from './Notification'
 import Cookies from 'universal-cookie';
 import { Spinner } from 'reactstrap';
@@ -181,7 +181,7 @@ class Create extends React.Component {
   render() {
     return (
       <div className="Create">
-        <NavBar />
+        <Navigationbar />
 
         {this.state.loading === true &&
           <div id="info"> Uploading <Spinner color="dark" /> </div>
