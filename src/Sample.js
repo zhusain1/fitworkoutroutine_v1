@@ -5,7 +5,7 @@ import {
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import Navbar from "./Navbar";
+import NavBar from "./NavBar";
   
 class Sample extends React.Component {
   constructor(props) {
@@ -104,7 +104,7 @@ class Sample extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <NavBar />
         {this.state.redirect === true ?
           <Redirect to={{
             pathname: '/exerciseManager',

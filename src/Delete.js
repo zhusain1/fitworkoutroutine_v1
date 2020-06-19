@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Navbar from './Navbar'
+import NavBar from './NavBar'
 import DeleteExercise from './DeleteExercise';
 class Delete extends React.Component {
   constructor(props) {
@@ -46,7 +46,7 @@ handleSubmit(event){
   render() {
     return (
         <div className="Delete">
-            <Navbar />
+            <NavBar />
             <div className="card  w-75">
             <h2> Select Workout to Delete </h2>
               {this.state.workoutNames.length > 0 &&

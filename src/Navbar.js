@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-class Navbar extends Component {
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+class NavBar extends Component {
     constructor(props){
         super(props)
 
@@ -48,24 +50,31 @@ class Navbar extends Component {
     render() {
         return (
             <div className="NavBar">
-                <ul className="navItems">
-                    <li>
-                        <Link to="/">Workouts</Link>
-                    </li>
-                    <li>
-                        {this.state.validRoute === true ? 
-                        <Link to={{pathname:"/exerciseManager", state:{validRoute: this.state.validRoute}}}>
-                            Manage Exercises
-                        </Link>:
-                        <Link to="/login">Manage Exercises</Link>
-                        }
-                    </li>
-                    <li>
-                        <Link to="/createAccount">Create Account</Link>
-                    </li>
+                <ul className="navItems">   
+                <Navbar expand="lg">
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <li>
+                            <Link to="/">Workouts</Link>
+                        </li>
+                        <li>
+                            {this.state.validRoute === true ?
+                            <Link to={{pathname:"/exerciseManager", state:{validRoute: this.state.validRoute}}}>
+                                Manage Exercises
+                            </Link>:
+                            <Link to="/login">Manage Exercises</Link>
+                            }
+                        </li>
+                        <li>
+                            <Link to="/createAccount">Create Account</Link>
+                        </li>
+                    </Nav>
+                </Navbar.Collapse>
+                </Navbar>
                 </ul>
             </div>
         );
     }
 }
-export default Navbar;
+export default NavBar;
