@@ -10,6 +10,7 @@ class CreateAccount extends React.Component {
     this.state ={
       username:"",
       password:"",
+      email:"",
       errors:false,
       notication: false
     };
@@ -17,10 +18,15 @@ class CreateAccount extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
   }
 
   handleUsername(event){
     this.setState({ username: event.target.value });
+  }
+
+  handleEmail(event){
+    this.setState({ email: event.target.value });
   }
 
   handlePassword(event){
@@ -32,10 +38,11 @@ class CreateAccount extends React.Component {
   
     var backend = 'https://workoutappapi.herokuapp.com/admin/createAccount';
 
-    if(this.state.username.length > 5  && this.state.password.length > 5){
+    if(this.state.username.length > 5  && this.state.password.length > 5 && this.state.email.length > 5){
       var loginData =  {
         username: this.state.username,
-        password: this.state.password
+        email: this.state.email,
+        password: this.state.password,
       };
   
       axios({
@@ -58,6 +65,7 @@ class CreateAccount extends React.Component {
             this.setState({ 
               errors: true,
               username: "",
+              email: "",
               password: ""
             });
         });
@@ -85,7 +93,10 @@ class CreateAccount extends React.Component {
                     Username: 
                     <input type="text" className="form-control" placeholder="username" 
                     onChange={this.handleUsername} value={this.state.username}/>
-                     Password:
+                    Email: 
+                    <input type="email" className="form-control" placeholder="email" 
+                    onChange={this.handleEmail} value={this.state.email}/>
+                    Password:
                     <input type="password" className="form-control" placeholder="password" 
                     onChange={this.handlePassword} value={this.state.password}/>
               </div>

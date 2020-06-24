@@ -31,7 +31,7 @@ select {
   padding-top: 40px;
 }
 
-input[type=text], input[type=password], select {
+input[type=text], input[type=email],  input[type=password], select {
   color: white !important;
   background-color: #020202 !important;
   border: #020202;
