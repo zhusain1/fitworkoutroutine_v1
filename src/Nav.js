@@ -10,6 +10,9 @@ import ExerciseManager from './ExerciseManager';
 import CreateAccount from './CreateAccount';
 import Delete from './Delete';
 import RemoveExercise from './RemoveExercise';
+import ForgotPassword from './ForgotPassword'
+import UpdatePassword from './UpdatePassword';
+import ForgotReset from './ForgotReset';
 import Brand from './Brand';
 import Footer from './Footer'
 import {
@@ -34,6 +37,9 @@ class Nav extends Component {
                     <Route exact path="/login" component={Sample} />
                     <Route exact path="/exerciseManager" component={ExerciseManager} />
                     <Route exact path="/createAccount" component={CreateAccount} />
+                    <Route exact path="/forgotPassword" component={ForgotPassword} />
+                    <Route exact path="/forgotPassword/user/:username" component={ForgotReset} />
+                    <Route exact path="/forgotPassword/user/:username/reset" component={UpdatePassword} />
                     <Route component={ErrorPage} />
                 </Switch>
                 <Footer/>

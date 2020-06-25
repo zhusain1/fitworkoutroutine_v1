@@ -49,9 +49,7 @@ class Sample extends React.Component {
             console.log(response);
         });
     }
-
-
-
+    
     this.handleSetShow = this.handleSetShow.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
@@ -128,6 +126,12 @@ class Sample extends React.Component {
                      Password:
                     <input type="password" className="form-control" placeholder="password" 
                     onChange={this.handlePassword} value={this.state.password}/>
+                     <div className="col">
+                      <Link to="/forgotPassword">
+                        <small>Forgot Password </small>
+                        <br/>
+                      </Link>
+                    </div>
                 </div>
               </div>
                 <div className="row">
@@ -138,7 +142,7 @@ class Sample extends React.Component {
                   </div>
                   <div className="col">
                     <Link to="/createAccount">
-                      <button className="btn btn-secondary" >Create Account </button>
+                      <button className="btn btn-secondary">Create Account </button>
                     </Link>
                   </div>
                 </div>
