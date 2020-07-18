@@ -6,6 +6,7 @@ import './App.css'
 import Navigationbar from './Navigationbar';
 import axios from 'axios';
 import Info from './Info'
+import {Helmet} from "react-helmet";
 
 class App extends Component {
     constructor(props){
@@ -39,6 +40,9 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <Helmet>
+                    <title>Fit Workout Routine</title>
+                </Helmet>
                 <Navigationbar />
                 <div className="card  w-75">
                     <Info />

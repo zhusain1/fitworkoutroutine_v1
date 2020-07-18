@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import Navigationbar from "./Navigationbar";
 import Notification from './Notification'
+import {Helmet} from "react-helmet";
 
 class CreateAccount extends React.Component {
   constructor(props) {
@@ -76,6 +77,9 @@ class CreateAccount extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>Create Account</title>
+        </Helmet>
         <Navigationbar />
         {this.state.notication === true &&
             <Notification title="Account Created" text="You can create/edit exercises"/>

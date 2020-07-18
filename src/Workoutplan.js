@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navigationbar from './Navigationbar';
 import Exercise from './Exercise';
 import {Card } from 'react-bootstrap';
+import {Helmet} from "react-helmet";
 class Workoutplan extends Component {
     
     constructor(props){
@@ -55,6 +56,9 @@ class Workoutplan extends Component {
     render() {
         return (
             <div>
+                <Helmet>
+                    <title>Workout Plan</title>
+                </Helmet>
                 <Navigationbar />
                 <Card className="card  w-75">
                     {this.state.workoutName.map((workout, index) => (
@@ -62,7 +66,7 @@ class Workoutplan extends Component {
                             text={this.state.workoutDescription[index]}
                             id={this.state.workoutId[index]} 
                             key={index}> 
-                        </Exercise>
+                    </Exercise>
                     ))}
                 </Card>
             </div>
