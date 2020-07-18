@@ -79,7 +79,7 @@ class CreateAccount extends React.Component {
       <div>
         <Helmet>
           <title>Create Account</title>
-          <meta name="description" content="Create a new Account" />
+          <meta name="description" content="Create a new account" />
         </Helmet>
         <Navigationbar />
         {this.state.notication === true &&
