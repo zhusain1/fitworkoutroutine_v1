@@ -105,6 +105,7 @@ class Sample extends React.Component {
       <div>
         <Helmet>
           <title>Exercise Manager</title>
+          <meta name="description" content="Exercise Manager Login" />
         </Helmet>
         <Navigationbar />
         {this.state.redirect === true ?
