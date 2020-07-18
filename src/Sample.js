@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import Navigationbar from "./Navigationbar";
+import {Helmet} from "react-helmet";
   
 class Sample extends React.Component {
   constructor(props) {
@@ -102,6 +103,9 @@ class Sample extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>Exercise Manager</title>
+        </Helmet>
         <Navigationbar />
         {this.state.redirect === true ?
           <Redirect to={{
