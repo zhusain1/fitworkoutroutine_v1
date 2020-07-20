@@ -72,10 +72,12 @@ class Navigationbar extends Component {
                             <li>
                                 <Link to="/createAccount">Create Account</Link>
                             </li>
+
+                            {this.state.username.length > 0 && 
                             <div className="user">
                                 <img src={account} alt="account" width="30" height="30"/> 
                                 <span className="avatar"> {this.state.username} </span>
-                            </div>
+                            </div>}
                         </Nav>
                     </Navbar.Collapse>
                     </Navbar>
