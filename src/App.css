@@ -7,6 +7,16 @@ body{
   color:white;
 }
 
+.user{
+  display: block;
+  padding: 16px;
+  font-weight: bold;
+}
+
+.avatar{
+  padding-right: 2px;
+}
+
 .Errorpage .card{
   padding: 15px;
 }
@@ -259,7 +269,9 @@ button.btn-secondary{
     float: none;
     text-align: center;
   }
-  
+  .user{
+    padding: 4px;
+  }
   .navItems li a {
     color: white;
     padding: 4px;
@@ -313,5 +325,12 @@ and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71)
    #adminLogin .row{
      display: inline-block;
    }
+}
+
+@media (min-width:1024px) { /* big landscape tablets, laptops, and desktops */ 
+  .user{
+    right: 30px;
+    position: absolute; 
+  }
 }
 
