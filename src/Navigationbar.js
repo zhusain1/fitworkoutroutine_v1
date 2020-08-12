@@ -5,6 +5,9 @@ import Cookies from 'universal-cookie';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import account from './account.png';
+import home from './home.png'
+import menu from './menu.png'
+import add from './add.png'
 class Navigationbar extends Component {
     constructor(props){
         super(props)
@@ -59,18 +62,20 @@ class Navigationbar extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <li>
-                                <Link to="/">Workouts</Link>
+                                <Link to="/">
+                                    <img src={home} alt="home" width="30" height="30"/> 
+                                </Link>
                             </li>
                             <li>
                                 {this.state.validRoute === true ?
                                 <Link to={{pathname:"/exerciseManager", state:{validRoute: this.state.validRoute}}}>
-                                    Manage Exercises
+                                    <img src={menu} alt="menu" width="30" height="30"/> 
                                 </Link>:
-                                <Link to="/login">Manage Exercises</Link>
+                                <Link to="/login"><img src={menu} alt="menu" width="30" height="30"/> </Link>
                                 }
                             </li>
                             <li>
-                                <Link to="/createAccount">Create Account</Link>
+                                <Link to="/createAccount"><img src={add} alt="add" width="30" height="30"/></Link>
                             </li>
 
                             {this.state.username.length > 0 && 
