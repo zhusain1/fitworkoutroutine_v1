@@ -43,7 +43,7 @@ class Workoutplan extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        const url = 'http://localhost:8080/workouts/type/'  + this.state.workoutType;
+        const url = 'http://localhost:8080/workouts/type/workout/'  + this.state.workoutType;
         axios.get(url)
         .then(res => {
             if(this.state.workoutId !== res.data.id){
