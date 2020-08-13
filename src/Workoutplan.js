@@ -3,21 +3,22 @@ import Navigationbar from './Navigationbar';
 import Exercise from './Exercise';
 import {Card } from 'react-bootstrap';
 import {Helmet} from "react-helmet";
+import axios from 'axios';
 class Workoutplan extends Component {
     
     constructor(props){
         super(props);
-        var workouts;
+        var workout;
         try{
-            workouts = this.props.history.location.state.workout;        
+            workout = this.props.history.location.state.workout;        
         }catch(error){
             console.log("ERROR");
-            console.log(workouts);
-            workouts = {}
+            console.log(workout);
+            workout = {}
             this.props.history.push('/error');
         }
 
-        if(workouts === undefined){
+        if(workout === undefined){
             console.log("ERROR AGAIN")
             this.props.history.push('/error');
         }
@@ -28,46 +29,51 @@ class Workoutplan extends Component {
         workoutType: "Chest"
         workoutUrl: "workout.com"
         */
-        var eId = []
-        var eName = []
-        var eDescription = []
-        var eType = []
-        var eUrl = []
-
-        for(let i = 0; i < workouts.length; i++){
-            eId.push(workouts[i].id);
-            eName.push(workouts[i].workoutName);
-            eDescription.push(workouts[i].workoutDescription);
-            eType.push(workouts[i].workoutType);
-            eUrl.push(workouts[i].workoutUrl);
-        }
 
         this.state={
-            workoutId : eId,
-            workoutName : eName,
-            workoutDescription : eDescription,
-            workoutType : eType,
-            workoutUrl : eUrl    
+            workoutId : workout.id,
+            workoutName : workout.workoutName,
+            workoutDescription : workout.workoutDescription,
+            workoutType : workout.workoutType,
+            workoutUrl : workout.workoutUrl    
         };
-
-        console.log(this.state)
+        console.log(this.state);
+        this.handleSubmit = this.handleSubmit.bind(this); 
     }
+
+    handleSubmit(event){
+        event.preventDefault();
+        const url = 'http://localhost:8080/workouts/type/'  + this.state.workoutType;
+        axios.get(url)
+        .then(res => {
+            if(this.state.workoutId !== res.data.id){
+                this.setState=({
+                    workoutId : res.data.id,
+                    workoutName : res.data.workoutName,
+                    workoutDescription : res.data.workoutDescription,
+                    workoutType : res.data.workoutType
+                });
+            }
+            console.log(this.state);
+        })
+    } 
 
     render() {
         return (
-            <div>
+            <div className="WorkoutPlan" key={this.state.workoutId}>
                 <Helmet>
                     <title>Workout Plan</title>
                 </Helmet>
                 <Navigationbar />
                 <Card className="card  w-75">
-                    {this.state.workoutName.map((workout, index) => (
-                    <Exercise title= {this.state.workoutName[index]}   
-                            text={this.state.workoutDescription[index]}
-                            id={this.state.workoutId[index]} 
-                            key={index}> 
+                <form onSubmit={this.handleSubmit}>
+                    <Exercise title= {this.state.workoutName}   
+                            text={this.state.workoutDescription}
+                            id={this.state.workoutId}
+                            type={this.state.workoutType}> 
                     </Exercise>
-                    ))}
+                    {/*<button type="submit" className="btn btn-primary">Next Exercise</button>*/ }
+                </form>
                 </Card>
             </div>
         );
