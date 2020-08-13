@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import account from './account.png';
 import home from './home.png'
-import menu from './menu.png'
+import edit from './edit.png'
 import add from './add.png'
 class Navigationbar extends Component {
     constructor(props){
@@ -69,9 +69,9 @@ class Navigationbar extends Component {
                             <li>
                                 {this.state.validRoute === true ?
                                 <Link to={{pathname:"/exerciseManager", state:{validRoute: this.state.validRoute}}}>
-                                    <img src={menu} alt="menu" width="30" height="30"/> 
+                                    <img src={edit} alt="edit" width="30" height="30"/> 
                                 </Link>:
-                                <Link to="/login"><img src={menu} alt="menu" width="30" height="30"/> </Link>
+                                <Link to="/login"><img src={edit} alt="edit" width="30" height="30"/> </Link>
                                 }
                             </li>
                             <li>
