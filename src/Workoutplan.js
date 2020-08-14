@@ -8,20 +8,9 @@ class Workoutplan extends Component {
     
     constructor(props){
         super(props);
-        var workout;
-        try{
-            workout = this.props.history.location.state.workout;        
-        }catch(error){
-            console.log("ERROR");
-            console.log(workout);
-            workout = {}
-            this.props.history.push('/error');
-        }
+        const { match: { params } } = this.props;
 
-        if(workout === undefined){
-            console.log("ERROR AGAIN")
-            this.props.history.push('/error');
-        }
+        console.log(params);
         /*
         id: 1
         workoutName: "Dumbell Press"
@@ -31,32 +20,30 @@ class Workoutplan extends Component {
         */
 
         this.state={
-            workoutId : workout.id,
-            workoutName : workout.workoutName,
-            workoutDescription : workout.workoutDescription,
-            workoutType : workout.workoutType,
-            workoutUrl : workout.workoutUrl    
+            workoutId : '',
+            workoutName : '',
+            workoutDescription : '',
+            workoutType : '' 
         };
-        console.log(this.state);
-        this.handleSubmit = this.handleSubmit.bind(this); 
+        
+        this.getWorkoutData(params.workout);
     }
 
-    handleSubmit(event){
-        event.preventDefault();
-        const url = 'http://localhost:8080/workouts/type/'  + this.state.workoutType;
+    getWorkoutData(id){
+        const url = 'https://workoutappapi.herokuapp.com/workouts/exercise/'+id;
         axios.get(url)
         .then(res => {
-            if(this.state.workoutId !== res.data.id){
-                this.setState=({
-                    workoutId : res.data.id,
-                    workoutName : res.data.workoutName,
-                    workoutDescription : res.data.workoutDescription,
-                    workoutType : res.data.workoutType
-                });
-            }
-            console.log(this.state);
-        })
-    } 
+            const workout = res.data;
+            this.setState({
+                workoutName: workout.workoutName,
+                workoutDescription: workout.workoutDescription,
+                workoutId: workout.id,
+                workoutType: workout.workoutType,
+            });
+        }).catch((res) => {
+          this.props.history.push('/error');
+        });
+    }
 
     render() {
         return (
@@ -72,7 +59,6 @@ class Workoutplan extends Component {
                             id={this.state.workoutId}
                             type={this.state.workoutType}> 
                     </Exercise>
-                    {/*<button type="submit" className="btn btn-primary">Next Exercise</button>*/ }
                 </form>
                 </Card>
             </div>

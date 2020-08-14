@@ -31,7 +31,7 @@ class Nav extends Component {
                     <Route exact path="/create" component={Create} />
                     <Route exact path="/edit" component={Edit} />
                     <Route exact path="/delete" component={Delete} />
-                    <Route exact path="/workoutplan" component={Workoutplan} />
+                    <Route exact path="/workoutplan/:workout" component={Workoutplan} />
                     <Route exact path="/edit/exercise/:exercise" component={UpdateExercise} />
                     <Route exact path="/delete/exercise/:exercise" component={RemoveExercise} />
                     <Route exact path="/login" component={Sample} />
