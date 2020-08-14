@@ -4,6 +4,8 @@ import axios from 'axios';
 import Notification from './Notification'
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 class UpdateExercise extends Component {
     constructor(props) {
@@ -192,8 +194,8 @@ class UpdateExercise extends Component {
         this.setState({ type: event.target.value });
       }
     
-      handleChangeDescription(event){
-        this.setState({description: event.target.value });
+      handleChangeDescription(value){
+        this.setState({description: value });
       }
     
     render() {
@@ -222,8 +224,8 @@ class UpdateExercise extends Component {
                   </div>
                   <br/>
                   <div className="col-12">
-                    <input type="text" className="form-control" placeholder="Description" 
-                    onChange = {this.handleChangeDescription} value={this.state.description}/>
+                    <ReactQuill value={this.state.description}
+                      onChange={this.handleChangeDescription} />
                   </div>
                   <br/>
                   <div className="col-5"> 

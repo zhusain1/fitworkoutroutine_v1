@@ -4,6 +4,8 @@ import Navigationbar from './Navigationbar'
 import Notification from './Notification'
 import Cookies from 'universal-cookie';
 import { Spinner } from 'reactstrap';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 class Create extends React.Component {
 
@@ -175,8 +177,8 @@ class Create extends React.Component {
     this.setState({ type: event.target.value });
   }
 
-  handleChangeDescription(event){
-    this.setState({description: event.target.value });
+  handleChangeDescription(value){
+    this.setState({description: value });
   }
 
   render() {
@@ -206,8 +208,8 @@ class Create extends React.Component {
                   </div>
                   <br/>
                   <div className="col-12">
-                    <input type="text" className="form-control" placeholder="Description" 
-                    onChange = {this.handleChangeDescription} value={this.state.description}/>
+                    <ReactQuill value={this.state.description}
+                    onChange={this.handleChangeDescription} />
                   </div>
                   <br/>
                   <div className="col-5"> 
