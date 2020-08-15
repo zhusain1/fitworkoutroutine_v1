@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import account from './account.png';
 import home from './home.png'
 import edit from './edit.png'
 import add from './add.png'
@@ -49,6 +48,14 @@ class Navigationbar extends Component {
                 });
             });
         }
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+
+    handleLogout(event){
+        const cookies = new Cookies();
+        cookies.set('code', "0", { path: '/' })
+        console.log(cookies);
+        this.props.history.push('/');
     }
 
 
@@ -80,8 +87,9 @@ class Navigationbar extends Component {
 
                             {this.state.username.length > 0 && 
                             <div className="user">
-                                <img src={account} alt="account" width="30" height="30"/> 
-                                <span className="avatar"> {this.state.username} </span>
+                                <button className="btn btn-secondary" onClick={this.handleLogout}>
+                                    Logout
+                                </button>
                             </div>}
                         </Nav>
                     </Navbar.Collapse>
@@ -92,4 +100,4 @@ class Navigationbar extends Component {
         );
     }
 }
-export default Navigationbar;
+export default withRouter(Navigationbar);

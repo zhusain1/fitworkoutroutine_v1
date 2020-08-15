@@ -4,7 +4,6 @@ import {
 } from 'react-router-dom';
 import './App.css'
 import Navigationbar from './Navigationbar';
-import Cookies from 'universal-cookie';
 
 class ExerciseManager extends Component {
     constructor(props){
@@ -16,16 +15,7 @@ class ExerciseManager extends Component {
             console.log("Invalid Route");
             this.props.history.push('/');
           }
-          this.handleLogout = this.handleLogout.bind(this);
     }
-
-    handleLogout(event){
-        const cookies = new Cookies();
-        cookies.set('code', "0", { path: '/' })
-        console.log(cookies);
-        this.props.history.push('/');
-    }
-
     render() {
         return (
             <div className="ExerciseManager">
@@ -47,11 +37,6 @@ class ExerciseManager extends Component {
                             <Link to='/delete' className="btn btn-primary btn-lg btn-block">
                                 Delete
                             </Link>
-                        </li>
-                        <li className="list-group-item">
-                            <button className="btn btn-secondary" onClick={this.handleLogout}>
-                                Logout
-                            </button>
                         </li>
                     </ul>
                 </div>
