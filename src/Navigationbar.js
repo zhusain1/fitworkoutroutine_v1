@@ -4,9 +4,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import home from './home.png'
-import edit from './edit.png'
-import add from './add.png'
+
 class Navigationbar extends Component {
     constructor(props){
         super(props)
@@ -70,19 +68,19 @@ class Navigationbar extends Component {
                         <Nav className="mr-auto">
                             <li>
                                 <Link to="/">
-                                    <img src={home} alt="home" width="30" height="30"/> 
+                                    Workouts
                                 </Link>
                             </li>
                             <li>
                                 {this.state.validRoute === true ?
                                 <Link to={{pathname:"/exerciseManager", state:{validRoute: this.state.validRoute}}}>
-                                    <img src={edit} alt="edit" width="30" height="30"/> 
+                                    Exercise Manager
                                 </Link>:
-                                <Link to="/login"><img src={edit} alt="edit" width="30" height="30"/> </Link>
+                                <Link to="/login"> Exercise Manager </Link>
                                 }
                             </li>
                             <li>
-                                <Link to="/createAccount"><img src={add} alt="add" width="30" height="30"/></Link>
+                                <Link to="/createAccount"> Create Account </Link>
                             </li>
 
                             {this.state.username.length > 0 && 
