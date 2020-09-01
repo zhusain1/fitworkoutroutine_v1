@@ -13,7 +13,6 @@ import RemoveExercise from './RemoveExercise';
 import ForgotPassword from './ForgotPassword'
 import UpdatePassword from './UpdatePassword';
 import ForgotReset from './ForgotReset';
-import Brand from './Brand';
 import Footer from './Footer'
 import {
     BrowserRouter as Router,
@@ -25,7 +24,6 @@ class Nav extends Component {
     render() {
         return (   
             <Router>
-                <Brand/>
                 <Switch>
                     <Route exact path="/" component={App} /> 
                     <Route exact path="/create" component={Create} />

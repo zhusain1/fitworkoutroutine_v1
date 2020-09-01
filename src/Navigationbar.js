@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Brand from './Brand';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import Navbar from 'react-bootstrap/Navbar';
@@ -94,6 +95,7 @@ class Navigationbar extends Component {
                     </Navbar>
                     </ul>
                 </div>
+                <Brand/>
             </div>
         );
     }
