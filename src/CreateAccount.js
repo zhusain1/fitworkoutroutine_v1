@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navigationbar from "./Navigationbar";
 import Notification from './Notification'
 import {Helmet} from "react-helmet";
+import { Link } from 'react-router-dom';
 
 class CreateAccount extends React.Component {
   constructor(props) {
@@ -105,11 +106,17 @@ class CreateAccount extends React.Component {
                     <input type="password" className="form-control" placeholder="password" 
                     onChange={this.handlePassword} value={this.state.password}/>
               </div>
-                <p>
-                  <button type="submit" className="btn btn-primary"  form="adminLogin">
-                    Create Account
-                  </button>
-                </p>
+                <div className="row">
+                    <button type="submit" className="btn btn-primary"  form="adminLogin">
+                      Create Account
+                    </button>
+                    <div className="col">
+                      <Link to="/login">
+                        <button className="btn btn-secondary"> Back </button>
+                      </Link>
+                    </div>
+                  </div>
+              <br/>
               </form>
         </div>
       </div>
