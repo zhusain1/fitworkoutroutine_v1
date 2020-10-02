@@ -125,10 +125,10 @@ class Sample extends React.Component {
               <form onSubmit={this.handleSetShow} id="adminLogin" >
               <div className="form-group">
                 <div>
-                    Username: 
+                    <label htmlFor="username" id="username"> Username:</label> 
                     <input type="text" className="form-control" placeholder="username" 
                     onChange={this.handleUsername} value={this.state.username}/>
-                     Password:
+                     <label htmlFor="password" id="password"> Password:</label> 
                     <input type="password" className="form-control" placeholder="password" 
                     onChange={this.handlePassword} value={this.state.password}/>
                      <div className="col">

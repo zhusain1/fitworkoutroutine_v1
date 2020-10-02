@@ -67,6 +67,13 @@ input[type=text], input[type=email],  input[type=password], select {
   outline: none;
 }
 
+#username, #password, #email{
+  float: left;
+  font-size: 16px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
 .alert-danger {
   color: white;
   background-color: #721c24;
