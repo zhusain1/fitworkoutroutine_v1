@@ -74,6 +74,11 @@ input[type=text], input[type=email],  input[type=password], select {
   font-weight: bold;
 }
 
+a:hover, a:focus {
+  color: #8C1C13;
+  text-decoration: underline;
+}
+
 .alert-danger {
   color: white;
   background-color: #721c24;
