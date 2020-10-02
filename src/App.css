@@ -54,6 +54,12 @@ select {
   padding-top: 40px;
 }
 
+.back {
+  text-align: right;
+  padding-right: 20px;
+  text-decoration: underline;
+}
+
 input[type=text], input[type=email],  input[type=password], select {
   color: white !important;
   background-color: #020202 !important;

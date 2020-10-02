@@ -4,6 +4,7 @@ import Exercise from './Exercise';
 import {Card } from 'react-bootstrap';
 import {Helmet} from "react-helmet";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 class Workoutplan extends Component {
     
     constructor(props){
@@ -53,6 +54,11 @@ class Workoutplan extends Component {
                 </Helmet>
                 <Navigationbar />
                 <Card className="card  w-75">
+                <div className="back">
+                    <Link to="/">
+                        Back
+                    </Link>
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     <Exercise title= {this.state.workoutName}   
                             text={this.state.workoutDescription}
