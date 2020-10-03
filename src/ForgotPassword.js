@@ -75,17 +75,17 @@ class ForgotPassword extends React.Component {
         <div className="card  w-75">
             {this.state.errors === true &&
                   <div className="alert alert-danger" role="alert">
-                    Error creating your account
+                    Error cannot find username/email
                   </div>
               }
             <h2> Reset Password </h2>
             
               <form onSubmit={this.handleSubmit} id="adminLogin" >
               <div className="form-group">
-                    Username: 
+                    <label htmlFor="username" id="username"> Username:</label> 
                     <input type="text" className="form-control" placeholder="username" 
                     onChange={this.handleUsername} value={this.state.username}/>
-                    Email: 
+                    <label htmlFor="email" id="email"> Email:</label> 
                     <input type="email" className="form-control" placeholder="email" 
                     onChange={this.handleEmail} value={this.state.email}/>
               </div>

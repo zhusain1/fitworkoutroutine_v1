@@ -87,7 +87,7 @@ class ForgotReset extends React.Component {
         <div className="card  w-75">
             {this.state.errors === true &&
                   <div className="alert alert-danger" role="alert">
-                    Error creating your account
+                    Error with password reset
                   </div>
               }
             <h2> Email Code </h2>

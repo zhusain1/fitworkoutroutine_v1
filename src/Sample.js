@@ -7,7 +7,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import Navigationbar from "./Navigationbar";
 import {Helmet} from "react-helmet";
-  
+
 class Sample extends React.Component {
   constructor(props) {
     super(props);
@@ -128,7 +128,7 @@ class Sample extends React.Component {
                     <label htmlFor="username" id="username"> Username:</label> 
                     <input type="text" className="form-control" placeholder="username" 
                     onChange={this.handleUsername} value={this.state.username}/>
-                     <label htmlFor="password" id="password"> Password:</label> 
+                    <label htmlFor="password" id="password"> Password:</label> 
                     <input type="password" className="form-control" placeholder="password" 
                     onChange={this.handlePassword} value={this.state.password}/>
                      <div className="col">

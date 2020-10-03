@@ -80,16 +80,16 @@ class UpdatePassword extends React.Component {
         <div className="card  w-75">
             {this.state.errors === true &&
                   <div className="alert alert-danger" role="alert">
-                    Error creating your account
+                    Passwords do not match
                   </div>
               }
             <h2> Reset Password </h2>
               <form onSubmit={this.handleSubmit} id="adminLogin" >
               <div className="form-group">
-                    Password: 
+                    <label htmlFor="password" id="password"> Password:</label> 
                     <input type="password" className="form-control" placeholder="password" 
                     onChange={this.handlePassword} value={this.state.password}/>
-                    Confirm Password: 
+                    <label htmlFor="password" id="password"> Confirm Password:</label> 
                     <input type="password" className="form-control" placeholder="confirm password" 
                     onChange={this.handleConfirmPassword} value={this.state.confirmPassword}/>
               </div>
