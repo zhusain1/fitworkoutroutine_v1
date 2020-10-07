@@ -24,6 +24,11 @@ class ExerciseManager extends Component {
                     <h2> Exercise Manager </h2>
                     <ul className="list-group">
                         <li className="list-group-item">
+                            <Link to='/user/exercises' className="btn btn-primary btn-lg btn-block">
+                                Exercises
+                            </Link>
+                        </li>
+                        <li className="list-group-item">
                             <Link to='/create' className="btn btn-primary btn-lg btn-block">
                                 Create
                             </Link>

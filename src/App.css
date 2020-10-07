@@ -17,6 +17,31 @@ body{
   background-color: black;
 }
 
+button#icon{
+  background-color: #2F2F2F !important;
+  border-color: #2F2F2F !important;
+  margin-right: 20px;
+  margin-top: 5px;
+  float: right;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+button#icon:active, button#icon:hover{
+  background-color: black !important;
+}
+
+img#plus {
+  margin-left: -13px;
+  margin-top: -9px;
+}
+
+img#minus{
+  margin-left: -13px;
+  margin-top: -9px;
+}
+
 .avatar{
   padding-right: 2px;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import App from './App';
+import UserWorkouts from './UserWorkouts';
 import Workoutplan from './Workoutplan';
 import Create from './Create';
 import Edit from './Edit';
@@ -26,6 +27,7 @@ class Nav extends Component {
             <Router>
                 <Switch>
                     <Route exact path="/" component={App} /> 
+                    <Route exact path="/user/exercises" component={UserWorkouts} />
                     <Route exact path="/create" component={Create} />
                     <Route exact path="/edit" component={Edit} />
                     <Route exact path="/delete" component={Delete} />
