@@ -151,6 +151,7 @@ class Workoutplan extends Component {
                                 <img src={plus} alt="plus"  id="plus"  width="30" height="30"/>
                             </button>
                             <br/>
+                            <br/>
                         </div>
                     }
                     <Exercise title= {this.state.workoutName}   
