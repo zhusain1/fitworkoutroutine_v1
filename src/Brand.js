@@ -6,7 +6,7 @@ class Brand extends Component{
     render(){
         return(
             <div className="Brand">
-                <img src={logo} alt="Logo" width="280" height="120" className="Image"/>
+                <img src={logo} alt="Logo" width="200" height="100" className="Image"/>
             </div>
         );
     }

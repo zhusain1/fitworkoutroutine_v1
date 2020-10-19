@@ -65,23 +65,31 @@ class Navigationbar extends Component {
                     <ul className="navItems">   
                     <Navbar expand="lg">
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <li>
+                        <Link to="/">
+                            <Brand/>
+                        </Link>
+                    </li>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <li>
-                                <Link to="/">
-                                    Workouts
-                                </Link>
-                            </li>
-                            <li>
                                 {this.state.validRoute === true ?
-                                <Link to={{pathname:"/exerciseManager", state:{validRoute: this.state.validRoute}}}>
-                                    Exercise Manager
-                                </Link>:
-                                <Link to="/login"> Exercise Manager </Link>
+                                <Link to={{pathname:"/workouts", state:{validRoute: this.state.validRoute}}} id="login">
+                                    Exercises
+                                </Link> :
+                                <Link to="/" id="login"> Exercises</Link>
                                 }
                             </li>
                             <li>
-                                <Link to="/createAccount"> Create Account </Link>
+                                {this.state.validRoute === true ?
+                                <Link to={{pathname:"/exerciseManager", state:{validRoute: this.state.validRoute}}} id="login">
+                                    Exercise Manager
+                                </Link>:
+                                <Link to="/login" id="login"> Exercise Manager </Link>
+                                }
+                            </li>
+                            <li>
+                                <Link to="/createAccount" id="create"> Create Account </Link>
                             </li>
 
                             {this.state.username.length > 0 && 
@@ -95,7 +103,6 @@ class Navigationbar extends Component {
                     </Navbar>
                     </ul>
                 </div>
-                <Brand/>
             </div>
         );
     }

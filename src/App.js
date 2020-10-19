@@ -5,6 +5,7 @@ import {
 import './App.css'
 import Navigationbar from './Navigationbar';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 import Info from './Info'
 import {Helmet} from "react-helmet";
 import ListExercise from './ListExercise';
@@ -20,6 +21,39 @@ class App extends Component {
     
         this.handleBodyPartChange = this.handleBodyPartChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        const cookies = new Cookies();
+
+        // if there is no cookie
+        if(cookies.get('code') === undefined || !cookies.get('code').length > 0){
+          this.props.history.push('/');
+        }
+        
+        /* Make call to check if code is valid from cookie */ 
+        if(cookies.get('code') !== undefined && cookies.get('code').length > 0){
+          // Server call post code and check if code is valid
+
+          var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
+
+          const code =  {
+            authCode: cookies.get('code')
+          };
+
+          axios({
+            method: 'post',
+            url: backend,
+            data: code,
+            headers: {'Content-Type': 'application/json' }
+            })
+            .then((response) => {
+                //handle success
+                console.log(response.data);
+            })
+            .catch((response) => {
+                //handle error
+                this.props.history.push('/');
+            });
+        }
     }
 
     handleBodyPartChange(event){
