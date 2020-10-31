@@ -150,8 +150,6 @@ class Workoutplan extends Component {
                             <button type="button" className="btn btn-primary" id="icon" onClick={this.handleAddWorkout}>
                                 <img src={plus} alt="plus"  id="plus"  width="30" height="30"/>
                             </button>
-                            <br/>
-                            <br/>
                         </div>
                     }
                     <Exercise title= {this.state.workoutName}   
