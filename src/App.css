@@ -238,6 +238,18 @@ a{
     margin-right: auto;
 }
 
+.btn {
+  border-radius: 125px;
+}
+
+.btn-block {
+  border-radius: 4px;
+}
+
+#login .btn.btn-primary {
+  width: 120px;
+}
+
 .btn-primary {
     color: #fff;
     background-color: black !important;
@@ -246,7 +258,7 @@ a{
 
 .btn-primary:hover{
     color: #fff;
-    background-color: #5A5A66 !important;
+    text-decoration: underline;
     border-color: #5A5A66 !important;
 }
 
