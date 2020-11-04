@@ -66,7 +66,7 @@ class Navigationbar extends Component {
                     <Navbar expand="lg">
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <li>
-                        <Link to="/">
+                        <Link to="/workouts">
                             <Brand/>
                         </Link>
                     </li>

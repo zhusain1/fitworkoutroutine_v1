@@ -55,6 +55,11 @@ body{
   font-weight: bold;
 }
 
+.user button.btn-secondary{
+  background-color: black;
+  border-color: black;
+}
+
 .marketing .container{
   text-align: center;
 }

@@ -153,10 +153,6 @@ class RemoveExercise extends Component {
     render() {
         return (
         <div>
-            {this.state.redirect === true &&
-             <Redirect to="/"/>
-            }
-
             <Navigationbar />
             {this.state.notification === true &&
               <Notification title="Update Successful" text="Your workout was deleted"/>
