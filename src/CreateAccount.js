@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-import Navigationbar from "./Navigationbar";
+import PreNavigationbar from "./PreNavigationbar";
 import Notification from './Notification'
 import {Helmet} from "react-helmet";
 import { Link } from 'react-router-dom';
@@ -82,7 +82,7 @@ class CreateAccount extends React.Component {
           <title>Create Account</title>
           <meta name="description" content="Create a new account" />
         </Helmet>
-        <Navigationbar />
+        <PreNavigationbar />
         {this.state.notication === true &&
             <Notification title="Account Created" text="You can create/edit exercises"/>
         }

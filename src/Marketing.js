@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navigationbar from './Navigationbar';
+import PreNavigationbar from './PreNavigationbar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
@@ -49,7 +49,7 @@ class Marketing extends Component{
     render(){
         return(
             <div className="marketing">
-                <Navigationbar/>
+                <PreNavigationbar/>
                 <div class="container">
                     <br/>
                     <br/>

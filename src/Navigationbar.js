@@ -87,17 +87,12 @@ class Navigationbar extends Component {
                                 </Link>:
                                 <Link to="/login" id="login"> Exercise Manager </Link>
                                 }
-                            </li>
-                            <li>
-                                <Link to="/createAccount" id="create"> Create Account </Link>
-                            </li>
-
-                            {this.state.username.length > 0 && 
+                            </li>                           
                             <div className="user">
                                 <button className="btn btn-secondary" onClick={this.handleLogout}>
                                     Logout
                                 </button>
-                            </div>}
+                            </div>
                         </Nav>
                     </Navbar.Collapse>
                     </Navbar>

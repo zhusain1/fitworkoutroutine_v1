@@ -3,7 +3,7 @@ import axios from 'axios';
 import {
 	withRouter
 } from 'react-router-dom';
-import Navigationbar from "./Navigationbar";
+import PreNavigationbar from "./PreNavigationbar";
 
 class ForgotPassword extends React.Component {
   constructor(props) {
@@ -71,7 +71,7 @@ class ForgotPassword extends React.Component {
   render() {
     return (
       <div>
-        <Navigationbar />
+        <PreNavigationbar />
         <div className="card  w-75">
             {this.state.errors === true &&
                   <div className="alert alert-danger" role="alert">

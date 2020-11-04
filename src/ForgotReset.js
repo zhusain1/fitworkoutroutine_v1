@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-import Navigationbar from "./Navigationbar";
+import PreNavigationbar from "./PreNavigationbar";
 import {
 	withRouter
 } from 'react-router-dom';
@@ -83,7 +83,7 @@ class ForgotReset extends React.Component {
   render() {
     return (
       <div>
-        <Navigationbar />
+        <PreNavigationbar />
         <div className="card  w-75">
             {this.state.errors === true &&
                   <div className="alert alert-danger" role="alert">

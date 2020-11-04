@@ -5,6 +5,12 @@ body{
   color:white;
 }
 
+.PreNavBar .Brand .Image{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
 .Brand .Image{
   width: 200px;
   height: 100px;

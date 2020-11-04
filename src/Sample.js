@@ -5,7 +5,7 @@ import {
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import Navigationbar from "./Navigationbar";
+import PreNavigationbar from "./PreNavigationbar";
 import {Helmet} from "react-helmet";
 
 class Sample extends React.Component {
@@ -107,7 +107,7 @@ class Sample extends React.Component {
           <title>Exercise Manager</title>
           <meta name="description" content="Exercise Manager Login" />
         </Helmet>
-        <Navigationbar />
+        <PreNavigationbar />
         {this.state.redirect === true ?
           <Redirect to={{
             pathname: '/exerciseManager',
