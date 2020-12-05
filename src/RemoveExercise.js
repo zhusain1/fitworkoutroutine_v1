@@ -12,7 +12,7 @@ class RemoveExercise extends Component {
         const cookies = new Cookies();
 
         // if there is no cookie
-        if(cookies.get('code') === undefined || !cookies.get('code').length > 0){
+        if(cookies.get('code') === undefined || !cookies.get('code').length > 1){
           this.props.history.push('/');
         }
         

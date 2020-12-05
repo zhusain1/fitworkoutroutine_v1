@@ -24,7 +24,7 @@ class Workoutplan extends Component {
        const cookies = new Cookies();
     
        /* Make call to check if code is valid from cookie */ 
-       if(cookies.get('code') !== undefined && cookies.get('code').length > 0){
+       if(cookies.get('code') !== undefined && cookies.get('code').length > 1){
            // Server call post code and check if code is valid
            var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
 
@@ -45,6 +45,8 @@ class Workoutplan extends Component {
                //handle error
                this.props.history.push('/');
            });
+       } else{
+        this.props.history.push('/');
        }
     
         this.state={
