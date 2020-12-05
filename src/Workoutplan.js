@@ -21,6 +21,31 @@ class Workoutplan extends Component {
         workoutUrl: "workout.com"
         */
 
+       const cookies = new Cookies();
+    
+       /* Make call to check if code is valid from cookie */ 
+       if(cookies.get('code') !== undefined && cookies.get('code').length > 0){
+           // Server call post code and check if code is valid
+           var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
+
+           const code =  {
+               authCode: cookies.get('code')
+           };
+
+           axios({
+           method: 'post',
+           url: backend,
+           data: code,
+           headers: {'Content-Type': 'application/json' }
+           })
+           .then((response) => {
+               this.setState({username: response.data})
+           })
+           .catch((response) => {
+               //handle error
+               this.props.history.push('/');
+           });
+       }
     
         this.state={
             workoutId : '',
@@ -30,30 +55,6 @@ class Workoutplan extends Component {
             username: '',
             notification: ''
         };
-        const cookies = new Cookies();
-    
-        /* Make call to check if code is valid from cookie */ 
-        if(cookies.get('code') !== undefined && cookies.get('code').length > 0){
-            // Server call post code and check if code is valid
-            var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
-
-            const code =  {
-                authCode: cookies.get('code')
-            };
-
-            axios({
-            method: 'post',
-            url: backend,
-            data: code,
-            headers: {'Content-Type': 'application/json' }
-            })
-            .then((response) => {
-                this.setState({username: response.data})
-            })
-            .catch((response) => {
-                //handle error
-            });
-        }
 
         this.getWorkoutData(params.workout);
 
