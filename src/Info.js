@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css'
-import info from './info.png';
+import info from './images/info.png';
 import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 
 const Info = (props) => {
