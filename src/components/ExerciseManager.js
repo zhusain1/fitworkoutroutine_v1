@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
 	withRouter, Link
 } from 'react-router-dom';
-import './App.css'
+import '../App.css'
 import Navigationbar from './Navigationbar';
 
 class ExerciseManager extends Component {

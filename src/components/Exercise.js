@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Card, Accordion, Button } from 'react-bootstrap';
 import { Player } from 'video-react';
 import ReactHtmlParser from 'react-html-parser';
-import "../node_modules/video-react/dist/video-react.css"; // import css
+import "../video-react.css"; // import css
 
 class Exercise extends Component {
     constructor(props){

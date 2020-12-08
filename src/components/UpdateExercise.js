@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navigationbar from './Navigationbar'
 import axios from 'axios';
-import Notification from './Notification'
+import Notification from '../Notification'
 import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import ReactQuill from 'react-quill';

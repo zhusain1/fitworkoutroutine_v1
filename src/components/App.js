@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {
 	withRouter
 } from 'react-router-dom';
-import './App.css'
+import '../App.css'
 import Navigationbar from './Navigationbar';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import Info from './Info'
+import Info from '../Info'
 import {Helmet} from "react-helmet";
 import ListExercise from './ListExercise';
 

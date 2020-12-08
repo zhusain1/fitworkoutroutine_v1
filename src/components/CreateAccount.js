@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import PreNavigationbar from "./PreNavigationbar";
-import Notification from './Notification'
+import Notification from '../Notification'
 import {Helmet} from "react-helmet";
 import { Link } from 'react-router-dom';
 

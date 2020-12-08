@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navigationbar from './Navigationbar'
 import axios from 'axios';
-import Notification from './Notification'
+import Notification from '../Notification'
 import Cookies from 'universal-cookie';
 
 class RemoveExercise extends Component {

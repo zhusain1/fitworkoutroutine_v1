@@ -6,9 +6,9 @@ import {Helmet} from "react-helmet";
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import plus from './images/plus.png';
-import minus from './images/minus.png';
-import Notification from './Notification';
+import plus from '../images/plus.png';
+import minus from '../images/minus.png';
+import Notification from '../Notification';
 class Workoutplan extends Component {
     constructor(props){
         super(props);

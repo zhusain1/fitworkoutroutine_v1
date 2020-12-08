@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PreNavigationbar from './PreNavigationbar';
 import { Link } from 'react-router-dom';
-import './App.css'
+import '../App.css'
 
 class Marketing extends Component{
     render(){

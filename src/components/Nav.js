@@ -6,7 +6,7 @@ import Create from './Create';
 import Edit from './Edit';
 import ErrorPage from './ErrorPage';
 import UpdateExercise from './UpdateExercise';
-import Sample from './Sample';
+import Login from './Login';
 import ExerciseManager from './ExerciseManager';
 import CreateAccount from './CreateAccount';
 import Delete from './Delete';
@@ -36,7 +36,7 @@ class Nav extends Component {
                     <Route exact path="/workoutplan/:workout" component={Workoutplan} />
                     <Route exact path="/edit/exercise/:exercise" component={UpdateExercise} />
                     <Route exact path="/delete/exercise/:exercise" component={RemoveExercise} />
-                    <Route exact path="/login" component={Sample} />
+                    <Route exact path="/login" component={Login} />
                     <Route exact path="/exerciseManager" component={ExerciseManager} />
                     <Route exact path="/createAccount" component={CreateAccount} />
                     <Route exact path="/forgotPassword" component={ForgotPassword} />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css'
+import '../App.css'
 import Navigationbar from './Navigationbar';
 import axios from 'axios';
 import ListExercise from './ListExercise';

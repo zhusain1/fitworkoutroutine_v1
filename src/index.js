@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';    
 import 'bootstrap/dist/css/bootstrap.css';
-import Nav from './Nav';
+import Nav from './components/Nav';
 import * as serviceWorker from './serviceWorker';
 
 function noop() {}

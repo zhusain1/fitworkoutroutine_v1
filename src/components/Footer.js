@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css'
-import dumbell from './images/dumbell.png';
+import '../App.css'
+import dumbell from '../images/dumbell.png';
 
 class Footer extends Component{
     render(){

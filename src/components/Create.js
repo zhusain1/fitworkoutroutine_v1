@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Navigationbar from './Navigationbar'
-import Notification from './Notification'
+import Notification from '../Notification'
 import Cookies from 'universal-cookie';
 import { Spinner } from 'reactstrap';
 import ReactQuill from 'react-quill';

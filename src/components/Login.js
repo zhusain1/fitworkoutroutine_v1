@@ -8,7 +8,7 @@ import Cookies from 'universal-cookie';
 import PreNavigationbar from "./PreNavigationbar";
 import {Helmet} from "react-helmet";
 
-class Sample extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
 
@@ -158,4 +158,4 @@ class Sample extends React.Component {
     );
   }
 }
-export default withRouter(Sample);
+export default withRouter(Login);
