@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import '../App.css'
 import Navigationbar from './Navigationbar';
-import axios from 'axios';
+import api from '../api/Api';
 import Cookies from 'universal-cookie';
 import Info from '../Info'
 import {Helmet} from "react-helmet";
@@ -33,17 +33,16 @@ class App extends Component {
         if(cookies.get('code') !== undefined && cookies.get('code').length > 1){
           // Server call post code and check if code is valid
 
-          var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
+          var backend = '/admin/authorize';
 
           const code =  {
             authCode: cookies.get('code')
           };
 
-          axios({
+          api({
             method: 'post',
             url: backend,
             data: code,
-            headers: {'Content-Type': 'application/json' }
             })
             .then((response) => {
                 //handle success
@@ -65,9 +64,9 @@ class App extends Component {
     handleSubmit(event){
         event.preventDefault();
 
-        const url = 'https://workoutappapi.herokuapp.com/workouts/type/'+this.state.bodyPart;
+        const url = '/workouts/type/'+this.state.bodyPart;
 
-        axios.get(url)
+        api.get(url)
         .then(res => {
             const workouts = res.data;
             var eNames = []

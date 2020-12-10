@@ -3,7 +3,7 @@ import {
 	withRouter, Redirect
 } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/Api';
 import Cookies from 'universal-cookie';
 import PreNavigationbar from "./PreNavigationbar";
 import {Helmet} from "react-helmet";
@@ -27,16 +27,15 @@ class Login extends React.Component {
     if(cookies.get('code') !== undefined && cookies.get('code').length > 0){
       // Server call post code and check if code is valid
 
-      var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
+      var backend = '/admin/authorize';
 
       const code =  {
         authCode: cookies.get('code')
       };
-      axios({
+      api({
         method: 'post',
         url: backend,
         data: code,
-        headers: {'Content-Type': 'application/json' }
         })
         .then((response) => {
             //handle success
@@ -67,18 +66,17 @@ class Login extends React.Component {
   handleSetShow(event){
     event.preventDefault() 
   
-    var backend = 'https://workoutappapi.herokuapp.com/admin/login';
+    var backend = '/admin/login';
 
     var loginData =  {
       username: this.state.username,
       password: this.state.password
     };
 
-    axios({
+    api({
       method: 'post',
       url: backend,
       data: loginData,
-      headers: {'Content-Type': 'application/json' }
       })
       .then((response) => {
           //handle success

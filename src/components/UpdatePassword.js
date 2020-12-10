@@ -1,5 +1,5 @@
 import React from "react";
-import axios from 'axios';
+import api from '../api/Api';
 import Navigationbar from "./Navigationbar";
 
 class UpdatePassword extends React.Component {
@@ -37,7 +37,7 @@ class UpdatePassword extends React.Component {
   handleSubmit(event){
     event.preventDefault() 
   
-    var backend = 'https://workoutappapi.herokuapp.com/admin/updatePassword';
+    var backend = '/admin/updatePassword';
 
     if(this.state.password.length > 5  && this.state.confirmPassword.length > 5 && 
       this.state.password === this.state.confirmPassword){
@@ -46,11 +46,10 @@ class UpdatePassword extends React.Component {
         password: this.state.password
       };
   
-      axios({
+      api({
         method: 'post',
         url: backend,
         data: loginData,
-        headers: {'Content-Type': 'application/json' }
         })
         .then((response) => {
             //handle success

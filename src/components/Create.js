@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import api from '../api/Api';
 import Navigationbar from './Navigationbar'
 import Notification from '../Notification'
 import Cookies from 'universal-cookie';
@@ -21,17 +21,16 @@ class Create extends React.Component {
     if(cookies.get('code') !== undefined && cookies.get('code').length > 0){
       // Server call post code and check if code is valid
 
-      var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
+      var backend = '/admin/authorize';
 
       const code =  {
         authCode: cookies.get('code')
       };
 
-      axios({
+      api({
         method: 'post',
         url: backend,
         data: code,
-        headers: {'Content-Type': 'application/json' }
         })
         .then((response) => {
             //handle success
@@ -85,7 +84,7 @@ class Create extends React.Component {
     event.preventDefault() 
 
     // Save to DB
-    var backend =  'https://workoutappapi.herokuapp.com/workout';
+    var backend =  '/workout';
 
     if(!this.handleFormErrors()){
       var workoutData =  {
@@ -95,11 +94,10 @@ class Create extends React.Component {
         workoutUrl: this.state.files.name
       };
 
-      axios({
+      api({
         method: 'post',
         url: backend,
         data: workoutData,
-        headers: {'Content-Type': 'application/json' }
         })
         .then((response) => {
             //handle success
@@ -122,13 +120,13 @@ class Create extends React.Component {
   
         
       // Save to S3
-      var server =  'https://workoutappapi.herokuapp.com/api/v1/workout-video/workoutVideo/upload';
+      var server =  '/api/v1/workout-video/workoutVideo/upload';
   
       var bodyFormData = new FormData();
       bodyFormData.append('file', this.state.files); 
       
       if(!this.handleFormErrors()){
-        axios({
+        api({
           method: 'post',
           url: server,
           data: bodyFormData,

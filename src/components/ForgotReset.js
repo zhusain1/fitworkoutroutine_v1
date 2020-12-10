@@ -1,5 +1,5 @@
 import React from "react";
-import axios from 'axios';
+import api from '../api/Api';
 import PreNavigationbar from "./PreNavigationbar";
 import {
 	withRouter
@@ -44,7 +44,7 @@ class ForgotReset extends React.Component {
   handleSubmit(event){
     event.preventDefault() 
   
-    var backend = 'https://workoutappapi.herokuapp.com/admin/verifyEmailCode';
+    var backend = '/admin/verifyEmailCode';
 
     if(this.state.emailCode.length > 5  && this.state.email.length > 5){
       var loginData =  {
@@ -53,11 +53,10 @@ class ForgotReset extends React.Component {
         username: this.state.username,
       };
   
-      axios({
+      api({
         method: 'post',
         url: backend,
         data: loginData,
-        headers: {'Content-Type': 'application/json' }
         })
         .then((response) => {
             //handle success

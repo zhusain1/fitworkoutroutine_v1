@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css'
 import Navigationbar from './Navigationbar';
-import axios from 'axios';
+import api from '../api/Api';
 import ListExercise from './ListExercise';
 import Cookies from 'universal-cookie';
 import { Spinner } from 'reactstrap';
@@ -20,17 +20,16 @@ class UserWorkouts extends Component {
         /* Make call to check if code is valid from cookie */ 
         if(cookies.get('code') !== undefined && cookies.get('code').length > 1){
             // Server call post code and check if code is valid
-            var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
+            var backend = '/admin/authorize';
 
             const code =  {
                 authCode: cookies.get('code')
             };
 
-            axios({
+            api({
             method: 'post',
             url: backend,
             data: code,
-            headers: {'Content-Type': 'application/json' }
             })
             .then((response) => {
                 console.log(response.data);
@@ -44,9 +43,9 @@ class UserWorkouts extends Component {
     }
 
     getWorkoutData(){
-        const url = 'https://workoutappapi.herokuapp.com/admin/workouts/'+this.state.username;
+        const url = '/admin/workouts/'+this.state.username;
         console.log(this.state.username);
-        axios.get(url)
+        api.get(url)
         .then(res => {
             const workouts = res.data;
             var eNames = []

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Brand from './Brand';
-import axios from 'axios';
+import api from '../api/Api';
 import Cookies from 'universal-cookie';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -21,17 +21,16 @@ class Navigationbar extends Component {
         if(cookies.get('code') !== undefined && cookies.get('code').length > 1){
             // Server call post code and check if code is valid
 
-            var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
+            var backend = '/admin/authorize';
 
             const code =  {
             authCode: cookies.get('code')
             };
 
-            axios({
+            api({
             method: 'post',
             url: backend,
             data: code,
-            headers: {'Content-Type': 'application/json' }
             })
             .then((response) => {
                 //handle success

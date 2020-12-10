@@ -1,5 +1,5 @@
 import React from "react";
-import axios from 'axios';
+import api from '../api/Api';
 import {
 	withRouter
 } from 'react-router-dom';
@@ -31,7 +31,7 @@ class ForgotPassword extends React.Component {
   handleSubmit(event){
     event.preventDefault() 
   
-    var backend = 'https://workoutappapi.herokuapp.com/admin/resetPassword';
+    var backend = '/admin/resetPassword';
 
     if(this.state.username.length > 5  && this.state.email.length > 5){
       var loginData =  {
@@ -39,11 +39,10 @@ class ForgotPassword extends React.Component {
         email: this.state.email
       };
   
-      axios({
+      api({
         method: 'post',
         url: backend,
         data: loginData,
-        headers: {'Content-Type': 'application/json' }
         })
         .then((response) => {
             //handle success

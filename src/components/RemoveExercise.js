@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navigationbar from './Navigationbar'
-import axios from 'axios';
+import api from '../api/Api';
 import Notification from '../Notification'
 import Cookies from 'universal-cookie';
 
@@ -20,17 +20,16 @@ class RemoveExercise extends Component {
         if(cookies.get('code') !== undefined && cookies.get('code').length > 1){
           // Server call post code and check if code is valid
 
-          var backend = 'https://workoutappapi.herokuapp.com/admin/authorize';
+          var backend = '/admin/authorize';
 
           const code =  {
             authCode: cookies.get('code')
           };
 
-          axios({
+          api({
             method: 'post',
             url: backend,
             data: code,
-            headers: {'Content-Type': 'application/json' }
             })
             .then((response) => {
                 //handle success
@@ -68,8 +67,8 @@ class RemoveExercise extends Component {
     }
 
     getWorkoutData(id){
-      const url = 'https://workoutappapi.herokuapp.com/workouts/exercise/'+id;
-      axios.get(url)
+      const url = '/workouts/exercise/'+id;
+      api.get(url)
       .then(res => {
           const workout = res.data;
           this.setState({
@@ -101,13 +100,12 @@ class RemoveExercise extends Component {
         console.log("File submitted and data submitted");
     
         // Save to DB
-        var backend =  'https://workoutappapi.herokuapp.com/workouts/' + this.state.id; //'https://workoutappapi.herokuapp.com/workout';
+        var backend =  '/workouts/' + this.state.id; //'https://workoutappapi.herokuapp.com/workout';
     
         if(!this.handleFormErrors()){  
-          axios({
+          api({
             method: 'delete',
             url: backend,
-            headers: {'Content-Type': 'application/json' }
             })
             .then((response) => {
                 //handle success
@@ -115,7 +113,7 @@ class RemoveExercise extends Component {
                   notification: true,
                   formErrors: false
                 });
-                this.props.history.push('/exerciseManager');
+                this.props.history.push('/exerciseManager', {validRoute: true});
             })
             .catch((response) => {
                 //handle error

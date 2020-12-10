@@ -1,5 +1,5 @@
 import React from "react";
-import axios from 'axios';
+import api from '../api/Api';
 import PreNavigationbar from "./PreNavigationbar";
 import Notification from '../Notification'
 import {Helmet} from "react-helmet";
@@ -38,7 +38,7 @@ class CreateAccount extends React.Component {
   handleSubmit(event){
     event.preventDefault() 
   
-    var backend = 'https://workoutappapi.herokuapp.com/admin/createAccount';
+    var backend = '/admin/createAccount';
 
     if(this.state.username.length > 5  && this.state.password.length > 5 && this.state.email.length > 5){
       var loginData =  {
@@ -47,11 +47,10 @@ class CreateAccount extends React.Component {
         password: this.state.password,
       };
   
-      axios({
+      api({
         method: 'post',
         url: backend,
         data: loginData,
-        headers: {'Content-Type': 'application/json' }
         })
         .then((response) => {
             //handle success
