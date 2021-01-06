@@ -7,7 +7,7 @@ class Footer extends Component{
         return(
             <div className="footer">
                 <p>
-                     &copy; Fit Workout Routine 2020 
+                     &copy; Fit Workout Routine 2021 
                 </p>
                 <img src={dumbell} alt="dumbell" width="40" height="40" className="Image"/> 
             </div>
